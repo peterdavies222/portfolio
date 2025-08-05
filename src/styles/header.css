@@ -1,0 +1,37 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  padding: 30px var(--inline-page-margins);
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  background: linear-gradient(180deg, var(--dark-gradient-end) 0%,  #181D1700 100%);
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+  flex-grow: 0;
+}
+
+nav a, nav a:visited {
+    color: var(--mint);
+    font-size: calc(18rem/16);
+}
+
+nav a:hover, nav a:visited:hover {
+    color: OKLCH(from var(--mint) calc(l*0.9) c h);
+}
+
+nav a.active, nav a.active:visited {
+    color: var(--raspberry);
+}
+
+nav a.active:hover, nav a.active:visited:hover {
+    color: OKLCH(from var(--raspberry) calc(l*1.1) c h);
+}
+
+#header-brandmark {
+    width: 250px;
+}

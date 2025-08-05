@@ -1,0 +1,30 @@
+.projects-view h1 {
+    margin-bottom: 150px;
+}
+
+.projects-filters {
+    margin-bottom: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.projects-filters label {
+    color: var(--mint);
+    cursor: pointer;
+    padding: 4px 20px 7px;
+    background-color: var(--mint-translucent);
+    border-top: 1px solid var(--mint-translucent);
+    border-radius: 100px;
+    transition: color 0.2s;
+}
+
+.projects-filters input {
+    display: none;
+}
+
+.projects-filters label:has(input[type="radio"]:checked) {
+    color: var(--raspberry);
+}
+
