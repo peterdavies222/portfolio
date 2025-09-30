@@ -1,17 +1,115 @@
-import brandmark from "../assets/brandmark-2.svg"
+// import brandmark from "../assets/main-3-light.svg"
 
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import {useEffect, useState} from 'react'
 
 export default function Header(props) {
+
+    const [navOpen, setNavOpen] = useState(false)
+    const [desktop, setDesktop] = useState(null)
+
+    const brandmark =   <svg data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 882.3 92.7">
+                            <path className="text-accent" fill="currentColor" d="M835.95,92.7c-2.02,0-4.04-.77-5.58-2.31-3.08-3.08-3.08-8.08,0-11.16l32.88-32.88-32.88-32.88c-3.08-3.08-3.08-8.08,0-11.16,3.08-3.08,8.08-3.08,11.16,0l38.46,38.46c3.08,3.08,3.08,8.08,0,11.16l-38.46,38.46c-1.54,1.54-3.56,2.31-5.58,2.31Z"/>
+                            <path className="text-accent" fill="currentColor" d="M46.35,92.7c-2.02,0-4.04-.77-5.58-2.31L2.31,51.93C.83,50.45,0,48.44,0,46.35s.83-4.1,2.31-5.58L40.77,2.31c3.08-3.08,8.08-3.08,11.16,0,3.08,3.08,3.08,8.08,0,11.16L19.06,46.35l32.88,32.88c3.08,3.08,3.08,8.08,0,11.16-1.54,1.54-3.56,2.31-5.58,2.31Z"/>
+                            <path className="text-primary" fill="currentColor" d="M74.25,81.07V11.58c0-1.25,1.02-2.27,2.27-2.27h34.58c13.96,0,25.3,10.25,25.3,24.75s-11.34,25.08-25.3,25.08h-16.7c-1.25,0-2.27,1.02-2.27,2.27v19.66c0,1.25-1.02,2.27-2.27,2.27h-13.34c-1.25,0-2.27-1.02-2.27-2.27ZM92.13,41.6c0,1.25,1.02,2.27,2.27,2.27h12.83c6.76,0,10.8-4.85,10.8-9.81,0-5.23-3.98-9.49-10.8-9.49h-12.83c-1.25,0-2.27,1.02-2.27,2.27v14.76Z"/>
+                            <path className="text-primary" fill="currentColor" d="M145.47,9.3h47.96c1.25,0,2.27,1.02,2.27,2.27v10.56c0,1.25-1.02,2.27-2.27,2.27h-30.02c-1.25,0-2.27,1.02-2.27,2.27v9.2c0,1.25,1.02,2.27,2.27,2.27h25.72c1.25,0,2.27,1.02,2.27,2.27v10.5c0,1.25-1.02,2.27-2.27,2.27h-25.72c-1.25,0-2.27,1.02-2.27,2.27v10.56c0,1.25,1.02,2.27,2.27,2.27h30.57c1.25,0,2.27,1.02,2.27,2.27v10.5c0,1.25-1.02,2.27-2.27,2.27h-48.51c-1.25,0-2.27-1.02-2.27-2.27V11.58c0-1.25,1.02-2.27,2.27-2.27Z"/>
+                            <path className="text-primary" fill="currentColor" d="M205.32,9.3h57.12c1.25,0,2.27,1.02,2.27,2.27v10.89c0,1.25-1.02,2.27-2.27,2.27h-17.32c-1.25,0-2.27,1.02-2.27,2.27v54.07c0,1.25-1.02,2.27-2.27,2.27h-13.34c-1.25,0-2.27-1.02-2.27-2.27V27.01c0-1.25-1.02-2.27-2.27-2.27h-17.37c-1.25,0-2.27-1.02-2.27-2.27v-10.89c0-1.25,1.02-2.27,2.27-2.27Z"/>
+                            <path className="text-primary" fill="currentColor" d="M273.63,9.3h47.96c1.25,0,2.27,1.02,2.27,2.27v10.56c0,1.25-1.02,2.27-2.27,2.27h-30.02c-1.25,0-2.27,1.02-2.27,2.27v9.2c0,1.25,1.02,2.27,2.27,2.27h25.72c1.25,0,2.27,1.02,2.27,2.27v10.5c0,1.25-1.02,2.27-2.27,2.27h-25.72c-1.25,0-2.27,1.02-2.27,2.27v10.56c0,1.25,1.02,2.27,2.27,2.27h30.57c1.25,0,2.27,1.02,2.27,2.27v10.5c0,1.25-1.02,2.27-2.27,2.27h-48.51c-1.25,0-2.27-1.02-2.27-2.27V11.58c0-1.25,1.02-2.27,2.27-2.27Z"/>
+                            <path className="text-primary" fill="currentColor" d="M333.28,81.07V11.58c0-1.25,1.02-2.27,2.27-2.27h35.13c13.96,0,25.3,9.87,25.3,24.04,0,9.7-4.99,17.33-12.46,21.35-1.12.6-1.56,1.97-.94,3.08l12.44,22.24c.85,1.51-.25,3.38-1.98,3.38h-14.14c-.83,0-1.59-.45-1.99-1.18l-12.72-23.21c-.4-.73-1.16-1.18-1.99-1.18h-8.76c-1.25,0-2.27,1.02-2.27,2.27v20.97c0,1.25-1.02,2.27-2.27,2.27h-13.34c-1.25,0-2.27-1.02-2.27-2.27ZM351.16,40.29c0,1.25,1.02,2.27,2.27,2.27h13.38c6.76,0,10.8-3.98,10.8-9.21,0-4.91-3.98-8.78-10.8-8.78h-13.38c-1.25,0-2.27,1.02-2.27,2.27v13.45Z"/>
+                            <path className="text-primary" fill="currentColor" d="M440.92,81.07V11.58c0-1.25,1.02-2.27,2.27-2.27h30.11c20.94,0,37.73,16.47,37.73,36.97s-16.79,37.07-37.73,37.07h-30.11c-1.25,0-2.27-1.02-2.27-2.27ZM471.56,68.3c12.43,0,20.94-10.03,20.94-22.03s-8.51-21.86-20.94-21.86h-10.43c-1.25,0-2.27,1.02-2.27,2.27v39.35c0,1.25,1.02,2.27,2.27,2.27h10.43Z"/>
+                            <path className="text-primary" fill="currentColor" d="M539.6,9.3h18.17c.93,0,1.77.57,2.11,1.44l27.48,69.5c.59,1.49-.51,3.11-2.11,3.11h-14.27c-.95,0-1.8-.59-2.13-1.48l-3.92-10.61c-.33-.89-1.18-1.48-2.13-1.48h-28.18c-.95,0-1.8.59-2.13,1.48l-3.92,10.61c-.33.89-1.18,1.48-2.13,1.48h-14.27c-1.6,0-2.7-1.61-2.11-3.11l27.43-69.5c.34-.87,1.18-1.44,2.11-1.44ZM541.43,55.81h14.58c1.58,0,2.68-1.57,2.13-3.06l-7.27-19.74c-.73-1.98-3.53-1.98-4.26,0l-7.31,19.74c-.55,1.48.55,3.06,2.13,3.06Z"/>
+                            <path className="text-primary" fill="currentColor" d="M581.7,9.3h14.72c.98,0,1.85.63,2.16,1.56l15.86,47.89c.69,2.08,3.63,2.08,4.31,0l15.71-47.88c.31-.93,1.18-1.56,2.16-1.56h14.71c1.57,0,2.66,1.55,2.14,3.03l-24.62,69.5c-.32.91-1.18,1.51-2.14,1.51h-20.4c-.96,0-1.82-.61-2.14-1.51l-24.62-69.5c-.52-1.48.57-3.03,2.14-3.03Z"/>
+                            <path className="text-primary" fill="currentColor" d="M677.21,83.34h-13.39c-1.25,0-2.27-1.02-2.27-2.27V11.58c0-1.25,1.02-2.27,2.27-2.27h13.39c1.25,0,2.27,1.02,2.27,2.27v69.5c0,1.25-1.02,2.27-2.27,2.27Z"/>
+                            <path className="text-primary" fill="currentColor" d="M694.47,9.3h47.96c1.25,0,2.27,1.02,2.27,2.27v10.56c0,1.25-1.02,2.27-2.27,2.27h-30.02c-1.25,0-2.27,1.02-2.27,2.27v9.2c0,1.25,1.02,2.27,2.27,2.27h25.72c1.25,0,2.27,1.02,2.27,2.27v10.5c0,1.25-1.02,2.27-2.27,2.27h-25.72c-1.25,0-2.27,1.02-2.27,2.27v10.56c0,1.25,1.02,2.27,2.27,2.27h30.57c1.25,0,2.27,1.02,2.27,2.27v10.5c0,1.25-1.02,2.27-2.27,2.27h-48.51c-1.25,0-2.27-1.02-2.27-2.27V11.58c0-1.25,1.02-2.27,2.27-2.27Z"/>
+                            <path className="text-primary" fill="currentColor" d="M764.15,58.96c1-.73,2.38-.51,3.14.47,4.25,5.47,10.53,8.81,17.03,8.81,5.83,0,10.63-2.34,10.63-5.72,0-4.74-6.27-6.16-15.16-8.83-13.25-3.98-25.3-8.23-25.3-23.39,0-13.63,13.3-22.08,26.88-22.08,12.25,0,21.28,5.45,27.75,13.93.77,1.01.57,2.47-.46,3.22l-9.62,7.09c-.99.73-2.36.52-3.14-.43-3.32-4.12-8.24-8.05-14.54-8.05-5.18,0-8.78,2.45-8.78,6,0,4.91,5.67,5.78,13.68,8.45,16.74,5.56,26.77,9.98,26.77,23.5,0,15.43-15.05,22.52-29.17,22.52-12.56,0-24.39-5.25-30.35-15.19-.6-1.01-.33-2.31.62-3l9.99-7.28Z"/>
+                        </svg>
+
+    const subMark = <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 252.16 92.7">
+                        <path className={navOpen ? "lime" : "text-accent"} fill="currentColor" d="M205.81,92.7c-2.02,0-4.04-.77-5.58-2.31-3.08-3.08-3.08-8.08,0-11.16l32.88-32.88-32.88-32.88c-3.08-3.08-3.08-8.08,0-11.16,3.08-3.08,8.08-3.08,11.16,0l38.46,38.46c3.08,3.08,3.08,8.08,0,11.16l-38.46,38.46c-1.54,1.54-3.56,2.31-5.58,2.31Z"/>
+                        <path className={navOpen ? "lime" : "text-accent"} fill="currentColor" d="M46.35,92.7c-2.02,0-4.04-.77-5.58-2.31L2.31,51.93C.83,50.45,0,48.44,0,46.35s.83-4.1,2.31-5.58L40.77,2.31c3.08-3.08,8.08-3.08,11.16,0,3.08,3.08,3.08,8.08,0,11.16L19.06,46.35l32.88,32.88c3.08,3.08,3.08,8.08,0,11.16-1.54,1.54-3.56,2.31-5.58,2.31Z"/>
+                        <path className={navOpen ? "mint" : "text-primary"} fill="currentColor" d="M65.84,81.07V11.58c0-1.25,1.02-2.27,2.27-2.27h34.58c13.96,0,25.3,10.25,25.3,24.75s-11.34,25.08-25.3,25.08h-16.7c-1.25,0-2.27,1.02-2.27,2.27v19.66c0,1.25-1.02,2.27-2.27,2.27h-13.34c-1.25,0-2.27-1.02-2.27-2.27ZM83.73,41.6c0,1.25,1.02,2.27,2.27,2.27h12.83c6.76,0,10.8-4.85,10.8-9.81,0-5.23-3.98-9.49-10.8-9.49h-12.83c-1.25,0-2.27,1.02-2.27,2.27v14.76Z"/>
+                        <path className={navOpen ? "mint" : "text-primary"} fill="currentColor" d="M134.6,81.07V11.58c0-1.25,1.02-2.27,2.27-2.27h30.11c20.94,0,37.73,16.47,37.73,36.97s-16.79,37.07-37.73,37.07h-30.11c-1.25,0-2.27-1.02-2.27-2.27ZM165.24,68.3c12.43,0,20.94-10.03,20.94-22.03s-8.51-21.86-20.94-21.86h-10.43c-1.25,0-2.27,1.02-2.27,2.27v39.35c0,1.25,1.02,2.27,2.27,2.27h10.43Z"/>
+                    </svg>
+
+    const hamburgerIcon = 
+    
+    <svg className={`hamburger-svg ${navOpen ? 'light' : 'text-primary'}`} viewBox="0 0 100 100" width="24">
+        <rect 
+            className="line line-top"
+            width="80" height="15"
+            x="10" y="20"rx="5"
+            fill="currentColor"
+        ></rect>
+        <rect 
+            className="line line-bottom"
+            width="80" height="15"
+            x="10" y="65"rx="5"
+            fill="currentColor"
+        ></rect>
+    </svg>
+
+    const hamburger = () => {
+        setNavOpen(prev => !prev)
+    }
+
+
+    const checkDesktop = () => {
+        if(window.innerWidth < 900) {
+            setDesktop(false)
+        } else {
+            setDesktop(true)
+        }
+    }
+
+    const linkClick = () => {
+        window.scrollTo(0, 0)
+        setNavOpen(false)
+    }
+
+    useEffect(()=> {
+        const blurWrapper = document.querySelector('.blur-wrapper')
+        for(let i = 0; i < 5; i++) {
+            const blurChild = document.createElement('div')
+            blurChild.classList.add('blur-child')
+            blurWrapper.appendChild(blurChild)
+        }
+        checkDesktop()
+        window.addEventListener('resize', ()=> {
+            checkDesktop()
+            if(window.innerWidth > 900) {
+                setNavOpen(false)
+            }
+        })
+
+        return ()=> window.removeEventListener('resize', ()=> {
+            checkDesktop()
+            if(window.innerWidth > 900) {
+                setNavOpen(false)
+            }
+        })
+
+    }, [])
+
+
     return (
         <header>
-            <Link to="/">
-                <img id="header-brandmark" src={brandmark} alt="Brandmark" />
-            </Link>
-            <nav>
-                <Link className={props.section === 'home' ? 'active' : ''} to="/">Home</Link>
-                <Link className={props.section === 'projects' ? 'active' : ''} to="/projects">Projects</Link>
-                <Link className={props.section === 'contact' ? 'active' : ''} to="/contact">Contact</Link>
+            <div className="blur-wrapper"></div>
+            <div>
+                <Link onClick={linkClick} className="brandmark-desktop" to="/">
+                    {brandmark}
+                </Link>
+                <Link onClick={linkClick} className="brandmark-mobile" to="/">
+                    {subMark}
+                </Link>
+                <button aria-controls='#nav' aria-expanded={navOpen ? "true" : "false"} className="hamburger" onClick={hamburger}>
+                    {hamburgerIcon}
+                </button>
+            </div>
+
+            <nav id="nav" data-expanded={navOpen || desktop ? "true" : "false"} className={navOpen===true ? "open" : "closed"}>
+                <Link onClick={linkClick} className={`text-primary ${props.section === 'projects' ? 'active' : ''}`} to="/">Projects</Link>
+                <Link onClick={linkClick} className={`text-primary ${props.section === 'about' ? 'active' : ''}`} to="/about">About</Link>
+                <Link onClick={linkClick} className={`text-primary ${props.section === 'contact' ? 'active' : ''}`} to="/contact">Contact</Link>
             </nav>
         </header>
     )

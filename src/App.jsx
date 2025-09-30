@@ -1,14 +1,9 @@
 import { useState } from 'react'
-import './App.css'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
-import HomeView from './views/HomeView'
 import ProjectsView from './views/ProjectsView'
+import AboutView from './views/AboutView'
 import ContactView from './views/ContactView'
-
-const Home= () => <HomeView />
-const Projects = () => <ProjectsView />
-const Contact = () => <ContactView />
 
 import Header from './components/Header'
 
@@ -18,9 +13,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/" element={<ProjectsView />} />
+        <Route path="/about" element={<AboutView />} />
+        <Route path="/contact" element={<ContactView />} />
       </Routes>
     </Router>
   )

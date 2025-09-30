@@ -1,22 +1,60 @@
 import Tag from "./Tag"
-import snorkelling from "../assets/snorkelling-hero.png"
+import ProjectInfo from "./ProjectInfo"
+import React from 'react'
+// import ReactDOM from "react-dom"
+import { createPortal } from "react-dom"
 
-export default function Project(props) {
+export default function Project({project}) {
+    const [isExpanded, setIsExpanded] = React.useState(false)
+    function projectExpand() {
+        setIsExpanded(true)
+        // const closeButton = document.querySelector('.project__close-button')
+        // closeButton.setAttribute('tabindex', '0')
+    }
+
+    const tagEls = []
+    for(let i = 0; i < 3; i++) {
+        let tag = <Tag label={project.tags[i]} key={i}/>
+        tagEls.push(tag)
+    }
+    if(project.tags.length > 3) {
+        let remainder = project.tags.length - 3
+        let tag = <Tag label={"+" + remainder} key="4"/>
+        tagEls.push(tag)
+    }
+    
+
+    const portalRoot = document.getElementById('portal-root')
+
+
     return(
-        <article className="project">
-            <button className="project-expand"></button>
-            <div className="project-information">
-                <h2>Western Australia Snorkelling</h2>
-                <div className="tags">
-                    <Tag label="Web design" />
-                    <Tag label="UX" />
-                    <Tag label="UI" />
-                    <Tag label="Frontend" />
+        <>
+            <article className="project">
+                <div className="project-image-container">
+                    <img className={`back-image ${project.backImage.type}`} src={project.backImage.source} alt={project.backImage.alt} />
+                    <img className={`front-image ${project.frontImage.type}`} src={project.frontImage.source} alt={project.frontImage.alt} />
                 </div>
-            </div>
-            <div className="project-image-container">
-                <img src={snorkelling} alt="Snorkelling" />
-            </div>
-        </article>
+                <div className="project-information">
+                    <ul className="tags">
+                        {tagEls}
+                    </ul>
+                    <h3 className="text-primary">{project.title}</h3>
+                    <p className="text-primary">{project.description}</p>
+                    <button className="project-expand" onClick={projectExpand}>View case study</button>
+                </div>
+            </article>
+            {isExpanded ? 
+                createPortal(
+                    <ProjectInfo 
+                    setIsExpanded={setIsExpanded}
+                    isExpanded={isExpanded}
+
+                    project={project}
+                    />,
+                    portalRoot
+                ):
+                null
+            }
+        </>
     )
 }

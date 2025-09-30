@@ -1,0 +1,66 @@
+.wrapper:has(.contact-view) {
+    height: 100vh;
+}
+
+.contact-view {
+
+    .hero {
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    h2 {
+        font-size: var(--title-font-size);
+    }
+
+    .gradient {
+        background: -webkit-linear-gradient(0deg, var(--mint), var(--lime), var(--mint), var(--lime), var(--mint));
+        background-size: 200% 200%;
+        background-position: 0% 50%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shimmer 2s linear infinite;
+    }
+
+    a {
+        font-size: var(--subheading-font-size);
+        position: relative;
+        isolation: isolate;
+        display: inline-block;
+        transition: all 1s;
+        color: var(--mint);
+    }
+    
+    a:hover {
+
+        .contact-line {
+            width: 100%;
+        }
+        
+    }
+
+    .contact-line {
+        position: absolute;
+        bottom: 0px;
+        width: 0%;
+        height: 5px;
+        background-color: var(--raspberry);
+        transition: width 1s;
+        border-radius: 10px;
+        z-index: -1;
+    }
+}
+
+@keyframes shimmer {
+    from {
+        background-position: 0% 50%;
+    }
+    to {
+        background-position: -100% 50%;
+    }
+}
+

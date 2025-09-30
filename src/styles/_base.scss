@@ -1,0 +1,140 @@
+/* helpers */
+
+html {
+  // scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: 'mundial', sans-serif;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  transition: background-color 1s, color 1s;
+  /* outline: solid red 1px; */
+}
+
+:root {
+  --section-padding-block: 120px;
+}
+
+body {
+  background-color: var(--dark-forest);
+}
+
+body:has(.project__info) {
+  overflow: hidden;
+}
+
+.wrapper {
+  transition: background-color 1s;
+}
+
+.wrapper.dark {
+  --background-color: var(--dark-forest);
+  background-color: var(--background-color);
+  --text-primary: var(--mint);
+  --text-secondary: var(--dust);
+  --text-accent: var(--lime);
+  --text-hover: var(--lime);
+  --bg-color: var(--dark-forest);
+  --card-color: var(--dark-forest);
+}
+
+.wrapper.light {
+  --background-color: var(--mint);
+  background-color: var(--background-color);
+  --text-primary: var(--forest);
+  --text-secondary: var(--birch);
+  --text-accent: var(--apple);
+  --text-hover: var(--lime);
+  --bg-color: var(--mint);
+  --card-color: var(--lime);
+}
+
+.wrapper.green {
+  --background-color: var(--lime);
+  background-color: var(--background-color);
+  --text-primary: var(--forest);
+  --text-secondary: var(--mint);
+  --text-accent: var(--apple);
+  --text-hover: var(--apple);
+  --bg-color: var(--lime);
+  --card-color: var(--mint);
+}
+
+main {
+  margin-inline: var(--inline-page-margins);
+  margin-top: 0;
+  padding-top: calc(2*var(--main-margin-top));
+}
+
+main.home-view {
+  margin-top: 180px;
+}
+
+a, a:visited {
+  text-decoration: none;
+  /* color: var(--lime); */
+}
+
+p {
+    font-family: 'mundial';
+    font-weight: 500;
+    color: var(--mint);
+    font-size: var(--body-font-size);
+    /* color: var(--dark-gradient-end); */
+}
+
+h1, h2 {
+  font-weight: 700;
+}
+
+h2 {
+  font-size: var(--heading-font-size);
+}
+
+.italic {
+    font-family: 'new-spirit';
+    font-weight: 700;
+    font-style: italic;
+}
+
+.serifed {
+  font-family: 'new-spirit';
+  font-weight: 700;
+}
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-accent {
+  color: var(--text-accent);
+}
+
+/* .heading-large {
+  font-size: calc(84rem/16);
+  text-align: center;
+  background: red !important;
+} */
+
+section:not(:last-of-type) {
+  margin-block-end: 120px;
+}
+
+section.hero {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+}
+
+p.body {
+  font-size: var(--body-large-font-size);
+  line-height: 150%;
+  font-weight: 500;
+}

@@ -1,0 +1,36 @@
+.projects {
+
+    .hero {
+        h1, h2 {
+            font-size: var(--title-font-size);
+        }
+    
+        h2 span {
+            display: inline-block;
+            font-weight: inherit;
+
+            span {
+                color: var(--text-accent);
+            }
+        }
+    }
+    
+
+        
+    .semantic-icon {
+        color: var(--text-accent);
+        width: calc(12em/16);
+        transform: translateY(0.25rem);
+        padding: 0;
+    }
+
+    
+    
+    #projects {
+        h2 {
+            margin-bottom: 60px;
+        }
+    }
+
+}    
+
