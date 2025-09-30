@@ -39,6 +39,9 @@ body:has(.project__info) {
   --text-hover: var(--lime);
   --bg-color: var(--dark-forest);
   --card-color: var(--dark-forest);
+  --inverse-button-bg: var(--apple);
+  --inverse-button-text: var(--mint);
+  --inverse-button-outline: var(--mint);
 }
 
 .wrapper.light {
@@ -50,6 +53,9 @@ body:has(.project__info) {
   --text-hover: var(--lime);
   --bg-color: var(--mint);
   --card-color: var(--lime);
+  --inverse-button-bg: var(--lime);
+  --inverse-button-text: var(--dark-forest);
+  --inverse-button-outline: var(--birch);
 }
 
 .wrapper.green {
@@ -137,4 +143,9 @@ p.body {
   font-size: var(--body-large-font-size);
   line-height: 150%;
   font-weight: 500;
+}
+
+#splash.hidden {
+  outline: 1px solid var(--mint);
+  transform: translateY(-101vh);
 }

@@ -8,10 +8,6 @@
     display: flex;
     position: relative;
 
-        * {
-        // outline: 1px solid red;
-    }
-
     @media (width < 800px) {
         height: fit-content;
         flex-direction: column;
@@ -22,18 +18,29 @@
     margin-bottom: 45px;
 }
 
-.project-expand {
+.project-information div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.project-expand, .visit-site {
     font-weight: normal;
     font-size: var(--body-font-size);
     cursor: pointer;
-    color: var(--forest);
+    color: var(--inverse-button-text);
     padding: 4px 20px 8px 20px;
-    background-color: var(--lime);
+    background: var(--inverse-button-bg);
     border: none;
     border-radius: 100px;
-    align-self: flex-start;
+    align-self: stretch;
+    transition: all 1s;
 }
 
+.visit-site {
+    background: none;
+    border: 2px solid var(--inverse-button-outline);
+}
 
 .project-information {
     height: 100%;

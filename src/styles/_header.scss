@@ -5,7 +5,7 @@ header {
   padding: 30px var(--inline-page-margins);
   position: fixed;
   top: 0;
-  z-index: 9999;
+  z-index: 9998;
   isolation: isolate;
 
   transition: height 0.5s ease-out, background-color 0.5s ease-out;

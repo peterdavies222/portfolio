@@ -40,7 +40,10 @@ export default function Project({project}) {
                     </ul>
                     <h3 className="text-primary">{project.title}</h3>
                     <p className="text-primary">{project.description}</p>
-                    <button className="project-expand" onClick={projectExpand}>View case study</button>
+                    <div>
+                        <button className="project-expand" onClick={projectExpand}>View case study</button>
+                        <a className="visit-site" href={project.link}>Visit site</a>
+                    </div>
                 </div>
             </article>
             {isExpanded ? 

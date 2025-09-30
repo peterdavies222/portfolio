@@ -43,11 +43,6 @@ export default function ProjectInfo({project, setIsExpanded, isExpanded}) {
                     </ul>
                 </header>
                 <main>
-                    {/* <div className="images">
-                        <div className="image__placeholder"></div>
-                        <div className="image__placeholder"></div>
-                        <div className="image__placeholder"></div>
-                    </div> */}
                     <div className="project__group">
                         <h3>The <span className="italic">task</span></h3>
                         <div className="project__paragraphs">
@@ -55,9 +50,7 @@ export default function ProjectInfo({project, setIsExpanded, isExpanded}) {
                         </div>
                     </div>
                     <div className="images">
-                        <div className="image__placeholder"></div>
-                        <div className="image__placeholder"></div>
-                        <div className="image__placeholder"></div>
+                        <img src={project.images[0].source} alt={project.images[0].alt} />
                     </div>
                     <div className="project__group">
                         <h3>The <span className="italic">process</span></h3>
@@ -77,9 +70,7 @@ export default function ProjectInfo({project, setIsExpanded, isExpanded}) {
                         </ul>
                     </div>
                     <div className="images">
-                        <div className="image__placeholder"></div>
-                        <div className="image__placeholder"></div>
-                        <div className="image__placeholder"></div>
+                        <img src={project.images[1].source} alt={project.images[1].alt} />
                     </div>
                     <a href="mailto:hello@peterdaviesdigital.com.au">Get in touch</a>
                 </main>

@@ -1,21 +1,38 @@
+// nectar images:
+import nectarBackImage from './src/assets/nectar-full-desktop.png'
+import nectarFrontImage from './src/assets/nectar-full-mobile.png'
+import nectar1 from './src/assets/nectar/nectar-1.jpg'
+import nectar2 from './src/assets/nectar/nectar-2.jpg'
+
+// salt shakerz images:
+import ssBackImage from './src/assets/ss-full-desktop.png'
+import ssFrontImage from './src/assets/ss-full-tablet.png'
+import ss1 from './src/assets/ss/ss-1.jpg'
+import ss2 from './src/assets/ss/ss-2.jpg'
+
 export default [
     {
         title: "Nectar Drinks",
         project: "nectar",
+        link: "https://nectardrinkscompany.netlify.app",
         backImage: {
             type: 'full-height',
-            source: 'src/assets/nectar-full-desktop.png',
+            source: nectarBackImage,
             alt: 'Nectar website'
         },
         frontImage: {
             type: 'mobile',
-            source: 'src/assets/nectar-full-mobile.png',
+            source: nectarFrontImage,
             alt: 'Nectar website'
         },
         images: [
             {
-                source: 'src/assets/nectar-hero.png',
-                alt: 'Device showing the Nectar website'
+                source: nectar1,
+                alt: 'iPhone, iPad, and MacBook displaying the Nectar website.'
+            },
+            {
+                source: nectar2,
+                alt: 'iPhone, iPad, and MacBook displaying the Nectar website.'
             }
         ],
         tags: [
@@ -38,20 +55,25 @@ export default [
     {
         title: "Salt Shakerz",
         project: "salt-shakerz",
+        link: "https://saltshakerzpodcast.netlify.app",
         backImage: {
             type: 'full-height',
-            source: 'src/assets/ss-full-desktop.png',
+            source: ssBackImage,
             alt: 'Salt Shakerz website'
         },
         frontImage: {
             type: 'tablet',
-            source: 'src/assets/ss-full-tablet.png',
+            source: ssFrontImage,
             alt: 'Salt Shakerz website'
         },
         images: [
             {
-                source: 'src/assets/salt-shakerz-hero.png',
-                alt: 'Device showing the Salt Shakerz website'
+                source: ss1,
+                alt: 'Devices showing the Salt Shakerz website'
+            }, 
+            {
+                source: ss2,
+                alt: 'Devices showing the Salt Shakerz website'
             }
         ],
         tags: [
@@ -71,33 +93,47 @@ export default [
         },
         nextProject: "communiteam"
     },
-    // {
-    //     title: "Communiteam",
-    //     project: "communiteam",
-    //     images: [
-    //         {
-    //             source: 'src/assets/salt-shakerz-hero.png',
-    //             alt: 'Device showing the Salt Shakerz website'
-    //         }
-    //     ],
-    //     tags: [
-    //         'UI Design',
-    //         'Web Design',
-    //         'Full-Stack',
-    //         'Branding'
-    //     ],
-    //     description: "Design and development for a web app fostering community connection through casual sport.",
-    //     task: [
-    //         "Physical activity is important for many reasons: it can boost physical health, mental health, and can create a sense of community. However, many people do not achieve the recommended amount of physical activity.",
-    //         "Create a web app which promotes physical health and fosters a sense of community, by making sporting more accessible and approachable."
-    //     ],
-    //     process: {
-    //         strategy: "Topic research. Web ethnography. Problem definition. Personas. Scenarios. Site architecture.",
-    //         design: "Moodboarding. Wireframing. Design. Prototyping. Iterating.",
-    //         development: "Full-stack development. Database integration. GSAP. SASS. Shoelace. Lit HTML. Responsive design."
-    //     },
-    //     nextProject: "dollar-scholar"
-    // },
+    {
+        title: "Communiteam",
+        project: "communiteam",
+        backImage: {
+            type: 'full-height',
+            source: ssBackImage,
+            alt: 'Salt Shakerz website'
+        },
+        frontImage: {
+            type: 'tablet',
+            source: ssFrontImage,
+            alt: 'Salt Shakerz website'
+        },
+        images: [
+            {
+                source: ss1,
+                alt: 'Device showing the Salt Shakerz website'
+            },
+            {
+                source: ss2,
+                alt: 'Device showing the Salt Shakerz website'
+            }
+        ],
+        tags: [
+            'UI Design',
+            'Web Design',
+            'Full-Stack',
+            'Branding'
+        ],
+        description: "Design and development for a web app fostering community connection through casual sport.",
+        task: [
+            "Physical activity is important for many reasons: it can boost physical health, mental health, and can create a sense of community. However, many people do not achieve the recommended amount of physical activity.",
+            "Create a web app which promotes physical health and fosters a sense of community, by making sporting more accessible and approachable."
+        ],
+        process: {
+            strategy: "Topic research. Web ethnography. Problem definition. Personas. Scenarios. Site architecture.",
+            design: "Moodboarding. Wireframing. Design. Prototyping. Iterating.",
+            development: "Full-stack development. Database integration. GSAP. SASS. Shoelace. Lit HTML. Responsive design."
+        },
+        nextProject: "dollar-scholar"
+    },
     // {
     //     title: "Dollar Scholar",
     //     project: "dollar-scholar",
