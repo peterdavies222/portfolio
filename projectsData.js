@@ -1,12 +1,12 @@
 // nectar images:
-import nectarBackImage from './src/assets/nectar-full-desktop.png'
-import nectarFrontImage from './src/assets/nectar-full-mobile.png'
+import nectarBackImage from './src/assets/nectar/nectar-full-desktop.jpg'
+import nectarFrontImage from './src/assets/nectar/nectar-full-mobile.jpg'
 import nectar1 from './src/assets/nectar/nectar-1.jpg'
 import nectar2 from './src/assets/nectar/nectar-2.jpg'
 
 // salt shakerz images:
-import ssBackImage from './src/assets/ss-full-desktop.png'
-import ssFrontImage from './src/assets/ss-full-tablet.png'
+import ssBackImage from './src/assets/ss/ss-full-desktop.jpg'
+import ssFrontImage from './src/assets/ss/ss-full-tablet.jpg'
 import ss1 from './src/assets/ss/ss-1.jpg'
 import ss2 from './src/assets/ss/ss-2.jpg'
 

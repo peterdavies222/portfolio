@@ -22,6 +22,10 @@
     display: flex;
     align-items: center;
     gap: 10px;
+
+    @media (width < 500px) {
+        flex-direction: column;
+    }
 }
 
 .project-expand, .visit-site {
@@ -35,6 +39,7 @@
     border-radius: 100px;
     align-self: stretch;
     transition: all 1s;
+    text-align: center;
 }
 
 .visit-site {

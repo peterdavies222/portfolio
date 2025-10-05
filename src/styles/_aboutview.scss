@@ -35,7 +35,7 @@
                 order: -1;
             }
 
-            .image-placeholder {
+            img {
                 width: 100%;
                 aspect-ratio: calc(16/9);
                 background: var(--text-secondary);
@@ -44,6 +44,7 @@
                 align-items: center;
                 transform: rotate(-2deg);
                 border-radius: 5px;
+                box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
 
                 @media (width < 900px) {
                     width: 50%;
@@ -222,6 +223,27 @@
 
 
         }
+
+        @media (width < 500px) {
+            .container .sticky {
+                gap: 30px;
+            }
+        }
+
+        @media (width < 400px) {
+            .container .sticky .scroll-section .scroll-frames .scroll-frame h3 {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                width: 100%;
+                hyphens: manual;
+
+                svg {
+                    align-self: flex-start;
+                }
+            }
+        }
     }
 
     #about-skills {
@@ -232,6 +254,7 @@
             width: calc(100% + 2*var(--inline-page-margins));
             margin-left: calc(-1 * var(--inline-page-margins));
             mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+            overflow: hidden;
 
             @media (width > 1500px) {
                 width: calc(100% + 240px);
@@ -245,8 +268,15 @@
             height: fit-content;
             gap: 30px;
             margin-top: calc(var(--title-font-size) - 10px);
-            overflow: hidden;
             padding-block: 10px;
+        }
+
+        .cards-container[data-animated="true"] .cards {
+            animation: scroll 20s linear infinite;
+        }
+
+        .cards-container[data-animated="true"] .cards:hover {
+            animation-play-state: paused;
         }
 
         .card {
@@ -257,6 +287,11 @@
             border-radius: 15px;
             background-color: var(--card-color);
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+            @media (width < 900px) {
+                width: 18rem;
+                height: calc(18rem * 1.25);
+            }
 
             h3 {
                 font-size: var(--subheading-font-size);
@@ -269,57 +304,11 @@
                 color: var(--text-primary);
             }
         }
-
-    //     h2 {
-    //         margin-bottom: 60px;
-    //         position: sticky;
-    //         top: 100px;
-    //     }
-    //     .cards {
-    //         // padding-top: 50vh;
-    //         display: grid;
-    //         gap: 60px;
-    //         list-style-type: none;
-    //         position: sticky;
-
-    //         .card {
-    //             background-color: var(--bg-color);
-    //             box-shadow: 0px 5px 80px rgba(0, 0, 0, 0.2);
-    //             width: 100%;
-    //             height: 70vh;
-    //             position: sticky;
-    //             top: 200px;
-    //             border-radius: 60px;
-    //             padding: 60px;
-
-    //             h3 {
-    //                 font-size: 2rem;
-    //                 margin-bottom: 2rem;
-    //             }
-
-    //             p {
-    //                 font-size: 1.5rem;
-    //                 line-height: 200%;
-    //                 // max-width: 50%;
-    //             }
-    //         }
-
-    //         #card1 {
-    //             top: 210px
-    //         }
-    //         #card2 {
-    //             top: 230px;
-    //         }
-    //         #card3 {
-    //             top: 250px;
-    //         }
-    //         #card4 {
-    //             top: 270px;
-    //         }
-    //     }
     }
 }
 
-.spacer {
-    height: 100vh;
+@keyframes scroll {
+    to {
+        transform: translateX(calc(-5 * (20rem + 30px)))
+    }
 }

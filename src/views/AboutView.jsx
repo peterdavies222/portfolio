@@ -1,6 +1,7 @@
 import Header from "../components/Header"
 import Footer from "../components/Footer"
-import {useEffect} from "react"
+import {useEffect, useRef} from "react"
+import selfie from "../assets/selfie.png"
 
 
 
@@ -48,7 +49,6 @@ export default function ProjectsView() {
             const distance = scrollFrames.getBoundingClientRect().top - window.innerHeight / 2
             let percentage = -1 * distance / scrollFramesHeight * 100
             percentage = percentage < 0 ? 0 : percentage > 100 ? 100 : percentage
-            console.log(percentage)
             
             // if top of scrollframes is more than 50% from top of page, percentage = 0
             // if top of scrollframes is less than 50% from top of page, percentage = percentage
@@ -82,7 +82,33 @@ export default function ProjectsView() {
         }
     }
 
+    const scroller = useRef()
+    const scrollerAnimation = () => {
+        if (!scroller.current) return
+
+        // Prevent running twice
+        if (scroller.current.getAttribute('data-animated') === 'true') return
+
+        scroller.current.setAttribute('data-animated', true)
+        const scrollerInner = scroller.current.querySelector('ul')
+        const scrollerContent = Array.from(scrollerInner.children)
+
+        for (let i = 0; i < 2; i++) {
+            scrollerContent.forEach(item => {
+                const duplicatedItem = item.cloneNode(true)
+                duplicatedItem.setAttribute('aria-hidden', true)
+                scrollerInner.appendChild(duplicatedItem)
+                console.log('duplicating card...')
+            })
+        }
+
+        const totalWidth = scrollerInner.scrollWidth / 2 // only the original set
+        scrollerInner.style.setProperty('--scroll-width', `-${totalWidth}px`)
+    }
+
     useEffect(()=> {
+        scrollerAnimation()
+
         hScroll()
         window.addEventListener('scroll', hScroll)
         window.addEventListener('resize', hScroll)
@@ -92,6 +118,7 @@ export default function ProjectsView() {
             window.removeEventListener('resize', hScroll)
         }
     }, [])
+
 
     function bgColors() {
         const processEl = document.getElementById("about-process");
@@ -166,7 +193,7 @@ export default function ProjectsView() {
                             </p>
                         </div>
                         <div className="intro-image-container">
-                            <div className="image-placeholder">[img]</div>
+                            <img src={selfie} alt="A photo of me!" />
                         </div>
                     </section>
                     <section id="about-process">
@@ -202,7 +229,7 @@ export default function ProjectsView() {
                                                 {developmentIcon}
                                             </div> */}
                                             <div className="scroll-frame-text">
-                                                <h3 className="text-accent serifed">{developmentIcon}Development</h3>
+                                                <h3 className="text-accent serifed">{developmentIcon}Develop&shy;ment</h3>
                                                 <p className="body">Turning the hypothetical into the tangible. Problem solving, collaborating, and bringing the product to the next level. It’s my bread and butter.</p>
                                             </div>
                                         </div>
@@ -214,25 +241,25 @@ export default function ProjectsView() {
                     </section>
                     <section id="about-skills">
                         <h2 className="text-primary">So, what can I <span className="text-accent italic">do</span>?</h2>
-                        <div className="cards-container">
+                        <div className="cards-container" ref={scroller}>
                             <ul className="cards">
-                                <li className="card" id="card1">
+                                <li className="card">
                                     <h3 className="text-accent serifed">Full-Stack Development</h3>
                                     <p className="text-primary">HTML. CSS. JavaScript. Node.js. MongoDB. React. PHP. GSAP. Component libraries. And more to come.</p>
                                 </li>
-                                <li className="card" id="card2">
+                                <li className="card">
                                     <h3 className="text-accent serifed">UX Design</h3>
                                     <p className="text-primary">Research. Synthesis. Understanding. Empathising. The foundation of something meaningful.</p>
                                 </li>
-                                <li className="card" id="card3">
+                                <li className="card">
                                     <h3 className="text-accent serifed">UI Design</h3>
                                     <p className="text-primary">Wireframes. Visualisations. Prototypes. Courtesy of Figma.</p>
                                 </li>
-                                <li className="card" id="card4">
+                                <li className="card">
                                     <h3 className="text-accent serifed">Graphic Design</h3>
                                     <p className="text-primary">Photoshop. Illustrator. InDesign. Design thinking. Art direction. Typography.</p>
                                 </li>
-                                <li className="card" id="card5">
+                                <li className="card">
                                     <h3 className="text-accent serifed">3D Design</h3>
                                     <p className="text-primary">Fusion 360. 3D printing. Prototyping. Testing. Improving.</p>
                                 </li>

@@ -38,7 +38,7 @@ body:has(.project__info) {
   --text-accent: var(--lime);
   --text-hover: var(--lime);
   --bg-color: var(--dark-forest);
-  --card-color: var(--dark-forest);
+  --card-color: hsl(from var(--mint) h s l / 0.05);
   --inverse-button-bg: var(--apple);
   --inverse-button-text: var(--mint);
   --inverse-button-outline: var(--mint);
@@ -148,4 +148,13 @@ p.body {
 #splash.hidden {
   outline: 1px solid var(--mint);
   transform: translateY(-101vh);
+}
+
+@keyframes shimmer {
+    from {
+        background-position: 0% 50%;
+    }
+    to {
+        background-position: -100% 50%;
+    }
 }

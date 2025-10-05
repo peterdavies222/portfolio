@@ -57,8 +57,9 @@ export default function Footer() {
                 </div>
                 <img src={submark} alt="Peter Davies" />
             </div> */}
-            <h2 className="text-primary">Let's create something exceptional.</h2>
+            <h2 className="text-primary">Let's create something <span className="italic gradient">exceptional.</span></h2>
             <a href="mailto:hello@peterdaviesdigital.com.au" className="text-primary serifed">hello@peterdaviesdigital.com.au<div className="contact-line"></div></a>
+            <a href="mailto:hello@peterdaviesdigital.com.au" className="button-like">Get in touch</a>
             <div className="footer-bottom">
                 <div className="footer-tags">
                     <div className="footer-tag">
