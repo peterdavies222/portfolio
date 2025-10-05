@@ -26,21 +26,37 @@
         animation: shimmer 2s linear infinite;
     }
 
-    a {
+    a.serifed {
         font-size: var(--subheading-font-size);
         position: relative;
         isolation: isolate;
         display: inline-block;
         transition: all 1s;
         color: var(--mint);
+
+        @media (width < 700px) {
+            display: none;
+        }
     }
     
-    a:hover {
+    a.serifed:hover {
 
         .contact-line {
             width: 100%;
         }
         
+    }
+
+    a.button-like {
+        color: var(--bg-color);
+        background-color: var(--text-accent);
+        width: fit-content;
+        padding: 10px 15px;
+        border-radius: 9999px;
+        display: none;
+        @media (width < 700px) {
+            display: block;
+        }
     }
 
     .contact-line {
