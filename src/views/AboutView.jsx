@@ -152,8 +152,8 @@ export default function ProjectsView() {
 
         // in section 3, color light
         } else if(skillsSectionDistance <= delayHeight && footerDistance > footerDelayHeight) {
-            wrapper.classList.remove("light", "dark")
-            wrapper.classList.add("green")
+            wrapper.classList.remove("green", "dark")
+            wrapper.classList.add("light")
         } else {
             wrapper.classList.remove("green", "light")
             wrapper.classList.add("dark")

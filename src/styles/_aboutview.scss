@@ -285,8 +285,9 @@
             padding: 2rem;
             flex-shrink: 0;
             border-radius: 15px;
-            background-color: var(--card-color);
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            background: hsl(from var(--birch) h s l / 20%);
+            // background-color: var(--card-color);
+            // box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 
             @media (width < 900px) {
                 width: 18rem;
