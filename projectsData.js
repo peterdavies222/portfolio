@@ -10,47 +10,66 @@ import ssFrontImage from './src/assets/ss/ss-full-tablet.jpg'
 import ss1 from './src/assets/ss/ss-1.jpg'
 import ss2 from './src/assets/ss/ss-2.jpg'
 
+// communiteam images:
+import ctBackImage from './src/assets/communiteam/communiteam-full-desktop.jpg'
+import ctFrontImage from './src/assets/communiteam/communiteam-full-mobile.jpg'
+import ct1 from './src/assets/communiteam/ct-1.jpg'
+import ct2 from './src/assets/communiteam/ct-2.jpg'
+
+// armband images:
+import abSketch1 from './src/assets/armband/sketch-1.jpg'
+import abSketch2 from './src/assets/armband/sketch-2.jpg'
+import abVizcom from './src/assets/armband/vizcom.jpg'
+import abLowFid1 from './src/assets/armband/lowfidelity-1.jpg'
+import abLowFid2 from './src/assets/armband/lowfidelity-2.jpg'
+import abLowFid3 from './src/assets/armband/lowfidelity-3.jpg'
+import abPolycam from './src/assets/armband/polycam.jpg'
+import abFusion360 from './src/assets/armband/fusion360.jpg'
+
+
+
 export default [
     {
-        title: "Nectar Drinks",
-        project: "nectar",
-        link: "https://nectardrinkscompany.netlify.app",
+        title: "Communiteam",
+        project: "communiteam",
+        link: "https://communiteam.netlify.app",
         backImage: {
             type: 'full-height',
-            source: nectarBackImage,
-            alt: 'Nectar website'
+            source: ctBackImage,
+            alt: 'Communiteam dashboard page'
         },
         frontImage: {
             type: 'mobile',
-            source: nectarFrontImage,
-            alt: 'Nectar website'
+            source: ctFrontImage,
+            alt: 'Communiteam event posting page'
         },
         images: [
             {
-                source: nectar1,
-                alt: 'iPhone, iPad, and MacBook displaying the Nectar website.'
+                source: ct1,
+                alt: 'Devices showing various screens of the Communiteam website'
             },
             {
-                source: nectar2,
-                alt: 'iPhone, iPad, and MacBook displaying the Nectar website.'
+                source: ct2,
+                alt: 'Devices showing various screens of the Communiteam website'
             }
         ],
         tags: [
-            'UX Design',
             'UI Design',
-            'Front-End'
+            'Web Design',
+            'Full-Stack',
+            'Branding'
         ],
-        description: "Design and development for a new, invigorating beverage.",
+        description: "Design and development for a web app fostering community connection through casual sport.",
         task: [
-            "Nectar Drinks is an up-and-coming beverage company, with drinks that use adaptogens and hemp extract to promote a calm state of mind.",
-            "Design and develop a site which showcases their product line and story, as well as providing information on ingredients and stockists."
+            "Physical activity is important for many reasons: it can boost physical health, mental health, and can create a sense of community. However, many people do not achieve the recommended amount of physical activity.",
+            "Create a web app which promotes physical health and fosters a sense of community, by making sporting more accessible and approachable."
         ],
         process: {
-            strategy: "web ethnography, user research and personas, competitor research, web design trends exploration.",
-            design: "moodboarding, wireframing, initial design exploration, design refinement.",
-            development: "HTML, CSS, and JavaScript implementation. Responsive design. Publishing to GitHub and deploying through Netlify."
+            strategy: "Topic research. Web ethnography. Problem definition. Personas. Scenarios. Site architecture.",
+            design: "Moodboarding. Wireframing. Design. Prototyping. Iterating.",
+            development: "Full-stack development. Database integration. GSAP. SASS. Shoelace. Lit HTML. Responsive design."
         },
-        nextProject: "salt-shakerz"
+        nextProject: "dollar-scholar"
     },
     {
         title: "Salt Shakerz",
@@ -94,46 +113,144 @@ export default [
         nextProject: "communiteam"
     },
     {
-        title: "Communiteam",
-        project: "communiteam",
+        title: "Nectar Drinks",
+        project: "nectar",
+        link: "https://nectardrinkscompany.netlify.app",
         backImage: {
             type: 'full-height',
-            source: ssBackImage,
-            alt: 'Salt Shakerz website'
+            source: nectarBackImage,
+            alt: 'Nectar website'
         },
         frontImage: {
-            type: 'tablet',
-            source: ssFrontImage,
-            alt: 'Salt Shakerz website'
+            type: 'mobile',
+            source: nectarFrontImage,
+            alt: 'Nectar website'
         },
         images: [
             {
-                source: ss1,
-                alt: 'Device showing the Salt Shakerz website'
+                source: nectar1,
+                alt: 'iPhone, iPad, and MacBook displaying the Nectar website.'
             },
             {
-                source: ss2,
-                alt: 'Device showing the Salt Shakerz website'
+                source: nectar2,
+                alt: 'iPhone, iPad, and MacBook displaying the Nectar website.'
             }
         ],
         tags: [
+            'UX Design',
             'UI Design',
-            'Web Design',
-            'Full-Stack',
-            'Branding'
+            'Front-End'
         ],
-        description: "Design and development for a web app fostering community connection through casual sport.",
+        description: "Design and development for a new, invigorating beverage.",
         task: [
-            "Physical activity is important for many reasons: it can boost physical health, mental health, and can create a sense of community. However, many people do not achieve the recommended amount of physical activity.",
-            "Create a web app which promotes physical health and fosters a sense of community, by making sporting more accessible and approachable."
+            "Nectar Drinks is an up-and-coming beverage company, with drinks that use adaptogens and hemp extract to promote a calm state of mind.",
+            "Design and develop a site which showcases their product line and story, as well as providing information on ingredients and stockists."
         ],
         process: {
-            strategy: "Topic research. Web ethnography. Problem definition. Personas. Scenarios. Site architecture.",
-            design: "Moodboarding. Wireframing. Design. Prototyping. Iterating.",
-            development: "Full-stack development. Database integration. GSAP. SASS. Shoelace. Lit HTML. Responsive design."
+            strategy: "web ethnography, user research and personas, competitor research, web design trends exploration.",
+            design: "moodboarding, wireframing, initial design exploration, design refinement.",
+            development: "HTML, CSS, and JavaScript implementation. Responsive design. Publishing to GitHub and deploying through Netlify."
         },
-        nextProject: "dollar-scholar"
+        nextProject: "salt-shakerz"
     },
+    {
+        title: 'MagSafe Armband',
+        project: 'armband',
+        mainImage: {
+            image: '',
+            alt: null
+        },
+        tags: [
+            '3D Design',
+            '3D Printing',
+            'Fusion 360'
+        ],
+        description: "Design and prototyping for a wearable MagSafe accessory.",
+        task: [
+            "Going to the gym can be difficult for many reasons: not knowing where to start, 'gym-timidation', and feeling unmotivated, to name a few. With these barriers already making it hard to get into building a routine, it is important that being at the gym is as smooth an experience as possible.",
+            "However, one pain point experienced by gym-goers is the need to constantly carry things around: a phone, towel, water bottle, as well as any specific equipment. Much of this ends up being placed on the floor when completing a workout set, increasing the risk of pathogen transmission, and creating an unhygienic environment.",
+            "One item that should never be placed on the floor is our phones, which we are constantly touching with our hands, and even our face. Hence, there is a need for a solution which allows users to quickly place their phone somewhere secure and hygienic, whilst being able to access it between sets."
+        ],
+        planning: [
+            {
+                images: [
+                    {
+                        image: abSketch1,
+                        alt: "Sketch of a phone attached to a MagSafe armband",
+                    },
+                    {
+                        image: abSketch2,
+                        alt: "Sketch of an armband with a face for MagSafe"
+                    },
+                    {
+                        image: abVizcom,
+                        alt: "Vizcom render of the armband"
+                    }
+                ],   
+                caption: "First, the concept was quickly sketched in Procreate. This sketch was then imported into Vizcom, to produce an AI-generated visualisation of how the final outcome may look."
+            },
+            {
+                images: [
+                    {
+                        image: abLowFid1,
+                        alt: 'Cardboard prototype of the armband with MagSafe attached'
+                    },
+                    {
+                        image: abLowFid2,
+                        alt: 'Cardboard prototype of the armband with MagSafe attached'
+                    },
+                    {
+                        image: abLowFid3,
+                        alt: 'Cardboard prototype worn on arm'
+                    }
+                ],   
+                caption: "The armband was prototyped in low fidelity, using cardboard and masking tape. This allowed for a basic understanding of how the accessory would fit and feel on the arm. It also helped uncover potential issues — as this prototype did not allow for adjustment, it was difficult to put on and take off, demonstrating the need for adjustability in the final solution."
+            },
+            {
+                images: [
+                    {
+                        image: abPolycam,
+                        alt: "Screenshot of the scanned prototype in the Polycam app",
+                    },
+                    {
+                        image: abFusion360,
+                        alt: null
+                    }
+                ],   
+                caption: "Next, the low-fidelity prototype was scanned using PolyCam, to produce a digital 3D render. This render was then imported into Fusion 360, allowing for an initial design to be drafted. This design was then 3D printed, marking the beginning of the iterative design and testing process."
+            }
+        ],
+        iteration: [
+            {
+                image: nectar1,
+                alt: 'null',
+                caption: "MagSafe plate too large; hooks on the back press uncomfortably into the skin."
+            },
+            {
+                image: nectar1,
+                alt: 'null',
+                caption: "Appropriate size; hooks more comfortable; however, hooks do not fit the velcro I had purchased."
+            },
+            {
+                image: nectar1,
+                alt: 'null',
+                caption: "Tested out a softer material to stick to the back of the MagSafe face. However, this spongey material showed insignificant benefit and was deemed unnecessary."
+            },
+            {
+                image: nectar1,
+                alt: 'null',
+                caption: "(Don't have photo of the print). Feels comfortable, however the hooks are still not large enough to easily remove the arm straps."
+            },
+            {
+                image: nectar1,
+                alt: 'null',
+                caption: "Made the hooks larger. Tested printing the MagSafe magnet gap with and without supports. The no-support version printed more nicely. Also removed the brim from the print, leading to a cleaner finish."
+            }
+        ],
+        nextProject: "salt-shakerz"
+    }
+    
+    
     // {
     //     title: "Dollar Scholar",
     //     project: "dollar-scholar",

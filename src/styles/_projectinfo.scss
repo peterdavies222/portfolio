@@ -1,8 +1,9 @@
 :root {
     --nectar-base: hsl(37, 82%, 50%);
-    --salt-shakerz-base: hsl(187, 71%, 47%);
+    --salt-shakerz-base: hsl(187, 46%, 51%);
     --communiteam-base: hsl(33, 100%, 57%);
     --dollar-scholar-base: 	hsl(304, 84%, 49%);
+    --armband-base: hsl(250, 35%, 60%);
 }
 
 .project__info {
@@ -41,6 +42,10 @@
         --base: var(--dollar-scholar-base);
     }
 
+    &.armband {
+        --base: var(--armband-base);
+    }
+
     &.active {
         animation-name: infoIn;
         animation-duration: 1s;
@@ -69,10 +74,21 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: rgb(0 0 0 / 0.4);
+        }
 
         @media (width > 1500px) {
             top: 60px;
             right: var(--inline-page-margins);
+        }
+
+        @media (width < 700px) {
+            width: 45px;
+            height: 45px;
+            top: 30px;
         }
     }
 
@@ -115,6 +131,7 @@
 
                 .italic {
                     font-weight: inherit;
+                    color: var(--text-accent);
                 }
             }
 
@@ -137,12 +154,16 @@
             }
 
             .project__group {
-                max-width: 70%;
                 margin-bottom: 120px;
                 
-                @media (width < 700px) {
-                    max-width: unset;
+                &:not(.full__width) {
+                    max-width: 70%;
+
+                    @media (width < 700px) {
+                        max-width: unset;
+                    }
                 }
+
             }
 
             .project__paragraphs {
@@ -152,7 +173,7 @@
             }
 
             .text-primary {
-                font-size: 1.5rem;
+                font-size: var(--body-large-font-size);
                 font-weight: 400;
             }
 
@@ -180,13 +201,85 @@
 
             a {
                 color: var(--text-primary);
-                font-size: 1rem;
-                padding: .4em 2em .5em 2em;
+                font-size: 1.2rem;
+                padding: 0.4em 1.6em 0.6em;
                 border-radius: 1000vw;
                 background-color: hsl(from var(--base) h s calc(l*0.5) / 0.2);
                 margin-inline: auto;
                 display: block;
                 width: fit-content;
+                transition: all 0.2s;
+
+                &:hover {
+                    background-color: hsl(from var(--base) h s calc(l*0.5) / 0.35);
+                }
+            }
+        }
+
+
+        figure.planning__module {
+            width: 100%;
+
+            .planning__images {
+                display: flex;
+                width: 100%;
+                justify-content: start;
+                gap: 1rem;
+
+                @media (width < 700px) {
+                    flex-direction: column;
+                }
+                
+                img {
+                    min-width: 0;
+                    flex-grow: 1;
+                    flex-shrink: 1;
+                    flex-basis: 0;
+                    height: auto;
+                    border-radius: 10px;
+                    object-fit: contain;
+                    aspect-ratio: 1;
+                    background: #b9b9b9;
+                }
+            }
+
+            figcaption {
+                max-width: 70%;
+                // margin: auto;
+                font-weight: 500;
+                margin-top: 1rem;
+
+                @media (width < 700px) {
+                    max-width: 100%;
+                }
+            }
+
+            &:not(:last-of-type) {
+                figcaption {
+                    margin-bottom: 2rem;
+                }
+            }
+        }
+
+        .iteration__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+            column-gap: 1rem;
+            row-gap: 2rem;
+
+            .iteration__module {
+                width: 100%;
+
+                img {
+                    width: 100%;
+                    border-radius: 10px;
+                    object-fit: cover;
+                    aspect-ratio: 1;
+                }
+
+                figcaption {
+                    font-weight: 500;
+                }
             }
         }
 
@@ -213,7 +306,7 @@
             }
 
             @media (width < 500px) {
-                align-items: flex-start;
+                // align-items: flex-start;
                 padding: var(--inline-page-margins);
             }
 
@@ -224,7 +317,7 @@
 
                 @media (width < 500px) {
                     flex-direction: column;
-                    align-items: flex-start;
+                    // align-items: flex-start;
                     gap: 15px;
                 }
             }

@@ -34,12 +34,22 @@
     cursor: pointer;
     color: var(--inverse-button-text);
     padding: 4px 20px 8px 20px;
-    background: var(--inverse-button-bg);
-    border: none;
     border-radius: 100px;
     align-self: stretch;
-    transition: all 1s;
     text-align: center;
+    transition: all 0.2s;
+
+    &:hover {
+        background: var(--raspberry);
+        border-color: var(--raspberry);
+        color: var(--mint);
+
+    }
+}
+
+.project-expand {
+    background: var(--inverse-button-bg);
+    border: none;
 }
 
 .visit-site {

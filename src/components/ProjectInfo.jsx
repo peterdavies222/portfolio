@@ -1,5 +1,7 @@
 import crossIcon from '../assets/cross.svg'
 import Tag from './Tag'
+import PlanningEl from './PlanningEl'
+import IterationEl from './IterationEl'
 import StrategySymbol from '../assets/strategy-symbol-light.svg?react'
 import DesignSymbol from '../assets/design-symbol-light.svg?react'
 import DevSymbol from '../assets/dev-symbol-light.svg?react'
@@ -28,7 +30,94 @@ export default function ProjectInfo({project, setIsExpanded, isExpanded}) {
         )
     })
 
-    return (
+    let planningEls
+
+    if(project.planning) {
+        planningEls = project.planning.map((el, i) => {
+            return (
+                <PlanningEl planningItem={el} key={i}/>
+            )
+        })
+    }
+
+    let iterationEls
+
+    if(project.iteration) {
+        iterationEls = project.iteration.map((el, i) => {
+            return (
+                <IterationEl key={i} iterationItem={el} order={i+1}/>
+            )
+        })
+    }
+
+    if(project.project === 'armband') return (
+        <div className={`project__info ${isExpanded ? "active" : "inactive"} ${project.project}`}>
+            <button onClick={closeProjectInfo} className="project__close-button">
+                <img src={crossIcon} alt="close" />
+            </button>
+            <article className="project__article">
+                <header className="project__info--header">
+                    <h2 className="project__title text-primary">
+                        {project.title}
+                    </h2>
+                    <ul className="tags">
+                        {tagElsFull}
+                    </ul>
+                </header>
+                <main>
+                    <div className="project__group">
+                        <h3>The <span className="italic">problem</span></h3>
+                        <div className="project__paragraphs">
+                            {taskParaEls}
+                        </div>
+                    </div>
+                    <div className="project__group full__width">
+                        <h3>The <span className="italic">planning</span></h3>
+                        <div className="project__paragraphs">
+                            {planningEls}
+                        </div>
+                    </div>
+                    <div className="project__group full__width">
+                        <h3>The <span className="italic">iteration</span></h3>
+                        <div className="iteration__grid">
+                            {iterationEls}
+                        </div>
+                    </div>
+                    <div className="project__group">
+                        <h3>The <span className="italic">solution</span></h3>
+                    </div>
+                    {/* <div className="images">
+                        <img src={project.images[1].source} alt={project.images[1].alt} />
+                    </div> */}
+                    <a href="mailto:hello@peterdaviesdigital.com.au">Get in touch</a>
+                </main>
+                <footer>
+                    <div className="footer-tags">
+                        <div className="footer-tag">
+                            <StrategySymbol className="footer-symbol" />
+                            <p>Strategy</p>
+                        </div>
+                        <div className="footer-tag">
+                            <DesignSymbol className="footer-symbol" />
+                            <p>Design</p>
+                        </div>
+                        <div className="footer-tag">
+                            <DevSymbol className="footer-symbol" />
+                            <p>Development</p>
+                        </div>
+                    </div>
+                    <div className="footer-brandmark">
+                        <Brandmark />
+                    </div>
+                </footer>
+            </article>
+            
+
+        </div>
+    )
+
+    else return (
+
         <div className={`project__info ${isExpanded ? "active" : "inactive"} ${project.project}`}>
             <button onClick={closeProjectInfo} className="project__close-button">
                 <img src={crossIcon} alt="close" />

@@ -27,7 +27,7 @@ export default function Project({project}) {
     const portalRoot = document.getElementById('portal-root')
 
 
-    return(
+    if(project.project != 'armband') return(
         <>
             <article className="project">
                 <div className="project-image-container">
@@ -42,7 +42,7 @@ export default function Project({project}) {
                     <p className="text-primary">{project.description}</p>
                     <div>
                         <button className="project-expand" onClick={projectExpand}>View case study</button>
-                        <a className="visit-site" href={project.link}>Visit site</a>
+                        {project.link && <a className="visit-site" href={project.link}>Visit site</a>}
                     </div>
                 </div>
             </article>
@@ -51,7 +51,37 @@ export default function Project({project}) {
                     <ProjectInfo 
                     setIsExpanded={setIsExpanded}
                     isExpanded={isExpanded}
-
+                    project={project}
+                    />,
+                    portalRoot
+                ):
+                null
+            }
+        </>
+    ) 
+    else return (
+        <>
+            <article className="project">
+                <div className="project-image-container">
+                    {/* <img className="armband-image" src= alt="" /> */}
+                </div>
+                <div className="project-information">
+                    <ul className="tags">
+                        {tagEls}
+                    </ul>
+                    <h3 className="text-primary">{project.title}</h3>
+                    <p className="text-primary">{project.description}</p>
+                    <div>
+                        <button className="project-expand" onClick={projectExpand}>View case study</button>
+                        {project.link && <a className="visit-site" href={project.link}>Visit site</a>}
+                    </div>
+                </div>
+            </article>
+            {isExpanded ? 
+                createPortal(
+                    <ProjectInfo 
+                    setIsExpanded={setIsExpanded}
+                    isExpanded={isExpanded}
                     project={project}
                     />,
                     portalRoot
