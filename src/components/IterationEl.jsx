@@ -1,8 +1,8 @@
-export default function IterationEl({iterationItem, order}) {
+export default function IterationEl({iterationItem}) {
     return (
         <figure className="iteration__module">
             <img src={iterationItem.image} alt={iterationItem.alt} />
-            <figcaption><span>Version {order}: </span>{iterationItem.caption}</figcaption>
+            <figcaption>{iterationItem.caption && <span>Version {iterationItem.version}: </span>}{iterationItem.caption}</figcaption>
         </figure>
     )
 }

@@ -25,8 +25,15 @@ import abLowFid2 from './src/assets/armband/lowfidelity-2.jpg'
 import abLowFid3 from './src/assets/armband/lowfidelity-3.jpg'
 import abPolycam from './src/assets/armband/polycam.jpg'
 import abFusion360 from './src/assets/armband/fusion360.jpg'
-
-
+import abFusion3602 from './src/assets/armband/fusion360-2.jpg'
+import abIteration1a from './src/assets/armband/iteration-1a.jpg'
+import abIteration1b from './src/assets/armband/iteration-1b.jpg'
+import abIteration2 from './src/assets/armband/iteration-2.jpg'
+import abIteration3a from './src/assets/armband/iteration-3a.jpg'
+import abIteration3b from './src/assets/armband/iteration-3b.jpg'
+import abIteration4 from './src/assets/armband/iteration-4.jpg'
+import abIteration5 from './src/assets/armband/iteration-5.jpg'
+import abIteration6 from './src/assets/armband/iteration-6.jpg'
 
 export default [
     {
@@ -214,7 +221,11 @@ export default [
                     },
                     {
                         image: abFusion360,
-                        alt: null
+                        alt: "Screenshot of the scan imported into Fusion 360"
+                    },
+                    {
+                        image: abFusion3602,
+                        alt: "Screenshot of the refined design in Fusion 360"
                     }
                 ],   
                 caption: "Next, the low-fidelity prototype was scanned using PolyCam, to produce a digital 3D render. This render was then imported into Fusion 360, allowing for an initial design to be drafted. This design was then 3D printed, marking the beginning of the iterative design and testing process."
@@ -222,29 +233,52 @@ export default [
         ],
         iteration: [
             {
-                image: nectar1,
+                version: '1',
+                image: abIteration1a,
                 alt: 'null',
-                caption: "MagSafe plate too large; hooks on the back press uncomfortably into the skin."
+                caption: "MagSafe plate too large."
             },
             {
-                image: nectar1,
+                version: '1',
+                image: abIteration1b,
+                alt: 'null',
+                caption: "Hooks on back uncomfortable; need more rounding."
+            },
+            {
+                version: '2',
+                image: abIteration2,
                 alt: 'null',
                 caption: "Appropriate size; hooks more comfortable; however, hooks do not fit the velcro I had purchased."
             },
             {
-                image: nectar1,
+                version: '3',
+                image: abIteration3a,
                 alt: 'null',
-                caption: "Tested out a softer material to stick to the back of the MagSafe face. However, this spongey material showed insignificant benefit and was deemed unnecessary."
+                caption: "Tested out a softer material to stick to the back of the MagSafe face, for a two-piece solution."
             },
             {
-                image: nectar1,
+                version: '3',
+                image: abIteration3b,
+                alt: 'null',
+                caption: "TPU and PLA pieces fit together tightly, eliminating the need for adhesive. However, the softer TPU provided minimal comfort improvements."
+            },
+            {
+                version: '4',
+                image: abIteration4,
                 alt: 'null',
                 caption: "(Don't have photo of the print). Feels comfortable, however the hooks are still not large enough to easily remove the arm straps."
             },
             {
-                image: nectar1,
+                version: '5',
+                image: abIteration5,
                 alt: 'null',
                 caption: "Made the hooks larger. Tested printing the MagSafe magnet gap with and without supports. The no-support version printed more nicely. Also removed the brim from the print, leading to a cleaner finish."
+            },
+            {
+                version: '6',
+                image: abIteration6,
+                alt: 'null',
+                caption: "Sewed the velcro arm straps and attached to the MagSafe plate. Hot-glued magnets into the magnet gap."
             }
         ],
         nextProject: "salt-shakerz"

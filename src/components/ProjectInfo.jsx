@@ -45,7 +45,7 @@ export default function ProjectInfo({project, setIsExpanded, isExpanded}) {
     if(project.iteration) {
         iterationEls = project.iteration.map((el, i) => {
             return (
-                <IterationEl key={i} iterationItem={el} order={i+1}/>
+                <IterationEl key={i} iterationItem={el}/>
             )
         })
     }
