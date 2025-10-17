@@ -17,7 +17,7 @@ import ct1 from './src/assets/communiteam/ct-1.jpg'
 import ct2 from './src/assets/communiteam/ct-2.jpg'
 
 // armband images:
-import abMainImage from './src/assets/armband/main-image-2.png'
+import abMainImage from './src/assets/armband/main-image-3.png'
 import abSketch1 from './src/assets/armband/sketch-1.jpg'
 import abSketch2 from './src/assets/armband/sketch-2.jpg'
 import abVizcom from './src/assets/armband/vizcom.jpg'
