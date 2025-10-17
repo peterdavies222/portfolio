@@ -63,7 +63,7 @@ export default function Project({project}) {
         <>
             <article className="project">
                 <div className="project-image-container">
-                    {/* <img className="armband-image" src= alt="" /> */}
+                    <img className="armband-image" src={project.mainImage.image} alt={project.mainImage.alt} />
                 </div>
                 <div className="project-information">
                     <ul className="tags">

@@ -283,6 +283,17 @@
             }
         }
 
+        .solution__images {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+
+            img {
+                width: 100%;
+                border-radius: 10px;
+            }
+        }
+
         footer {
             width: calc(100% + 2*var(--inline-page-margins));
             height: fit-content;

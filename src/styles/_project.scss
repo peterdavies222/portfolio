@@ -89,6 +89,7 @@
     height: 100%;
     width: 100%;
     position: relative;
+    overflow: hidden;
 
     @media (width < 800px) {
         overflow: hidden;
@@ -140,6 +141,16 @@
     &.tablet {
         width: 60%;
     }
+}
+
+.project-image-container .armband-image {
+    object-fit: cover;
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .tags {

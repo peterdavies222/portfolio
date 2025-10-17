@@ -17,6 +17,7 @@ import ct1 from './src/assets/communiteam/ct-1.jpg'
 import ct2 from './src/assets/communiteam/ct-2.jpg'
 
 // armband images:
+import abMainImage from './src/assets/armband/main-image-2.png'
 import abSketch1 from './src/assets/armband/sketch-1.jpg'
 import abSketch2 from './src/assets/armband/sketch-2.jpg'
 import abVizcom from './src/assets/armband/vizcom.jpg'
@@ -34,6 +35,8 @@ import abIteration3b from './src/assets/armband/iteration-3b.jpg'
 import abIteration4 from './src/assets/armband/iteration-4.jpg'
 import abIteration5 from './src/assets/armband/iteration-5.jpg'
 import abIteration6 from './src/assets/armband/iteration-6.jpg'
+import abRender1 from './src/assets/armband/render-1.jpg'
+import abRender2 from './src/assets/armband/render-2.jpg'
 
 export default [
     {
@@ -164,8 +167,8 @@ export default [
         title: 'MagSafe Armband',
         project: 'armband',
         mainImage: {
-            image: '',
-            alt: null
+            image: abMainImage,
+            alt: 'MagSafe armband'
         },
         tags: [
             '3D Design',
@@ -279,6 +282,16 @@ export default [
                 image: abIteration6,
                 alt: 'null',
                 caption: "Sewed the velcro arm straps and attached to the MagSafe plate. Hot-glued magnets into the magnet gap."
+            }
+        ],
+        solution: [
+            {
+                image: abRender1,
+                alt: 'Photo shows phone attached to MagSafe armband on arm'
+            },
+            {
+                image: abRender2,
+                alt: 'Photo shows MagSafe armband on arm'
             }
         ],
         nextProject: "salt-shakerz"

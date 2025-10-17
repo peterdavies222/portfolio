@@ -50,6 +50,16 @@ export default function ProjectInfo({project, setIsExpanded, isExpanded}) {
         })
     }
 
+    let solutionEls
+
+    if(project.solution) {
+        solutionEls = project.solution.map((el, i) => {
+            return (
+                <img src={el.image} alt={el.alt} key={i} />
+            )
+        })
+    }
+
     if(project.project === 'armband') return (
         <div className={`project__info ${isExpanded ? "active" : "inactive"} ${project.project}`}>
             <button onClick={closeProjectInfo} className="project__close-button">
@@ -83,12 +93,12 @@ export default function ProjectInfo({project, setIsExpanded, isExpanded}) {
                             {iterationEls}
                         </div>
                     </div>
-                    <div className="project__group">
+                    <div className="project__group full__width">
                         <h3>The <span className="italic">solution</span></h3>
+                        <div className="solution__images">
+                            {solutionEls}
+                        </div>
                     </div>
-                    {/* <div className="images">
-                        <img src={project.images[1].source} alt={project.images[1].alt} />
-                    </div> */}
                     <a href="mailto:hello@peterdaviesdigital.com.au">Get in touch</a>
                 </main>
                 <footer>
