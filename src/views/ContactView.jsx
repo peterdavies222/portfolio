@@ -15,8 +15,8 @@ export default function ContactView() {
                             <span className="italic gradient">exceptional.</span>
                         </h2>
                     </section>
-                    <a className="serifed text-primary" href="mailto:hello@peterdaviesdigital.com.au">hello@peterdaviesdigital.com.au<div className="contact-line"></div></a>
-                    <a className="button-like" href="mailto:hello@peterdaviesdigital.com.au">Get in touch<div className="contact-line"></div></a>
+                    <a className="serifed text-primary" href="mailto:hello@peterdaviesdigital.com">hello@peterdaviesdigital.com<div className="contact-line"></div></a>
+                    <a className="button-like" href="mailto:hello@peterdaviesdigital.com">Get in touch<div className="contact-line"></div></a>
                 </main>
             </div>
             
