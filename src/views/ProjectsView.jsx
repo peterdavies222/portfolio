@@ -52,6 +52,7 @@ export default function HomeView() {
 
     function bgColors() {
         const projectsEl = document.getElementById("projects");
+        const videoEl = document.getElementById("video")
         const footerEl = document.querySelector('footer')
         const wrapper = document.querySelector(".wrapper");
         if (!projectsEl || !wrapper) return; // safety
@@ -61,8 +62,10 @@ export default function HomeView() {
         const projectsSectionDistance =
             projectsSectionOffset - currentScrollHeight;
 
-        const footerOffset = footerEl.offsetTop
-        const footerDistance = footerOffset - currentScrollHeight
+        // const footerOffset = footerEl.offsetTop
+        // const footerDistance = footerOffset - currentScrollHeight
+        const videoOffset = videoEl.offsetTop
+        const videoDistance = videoOffset - currentScrollHeight
 
         const delayHeight = window.innerHeight / 2;
         const footerDelayHeight = 2 * window.innerHeight / 3;
@@ -70,7 +73,7 @@ export default function HomeView() {
         if (projectsSectionDistance >= delayHeight) {
             wrapper.classList.remove("light");
             wrapper.classList.add("dark");
-        } else if(projectsSectionDistance < delayHeight && footerDistance >= footerDelayHeight ){
+        } else if(projectsSectionDistance < delayHeight && videoDistance >= delayHeight ){
             wrapper.classList.remove("dark");
             wrapper.classList.add("light");
         } else {
@@ -122,6 +125,11 @@ export default function HomeView() {
                         <div className="projects">
                             {projectElements}
                         </div>
+                    </section>
+                    <section id="video">
+                        <iframe width="420" height="315"
+                            src="https://www.youtube.com/embed/ivT6hT8mAn0?controls=0&showinfo=0">
+                        </iframe>
                     </section>
                 </main>
                 <Footer />
