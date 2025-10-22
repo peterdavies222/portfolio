@@ -16,6 +16,12 @@ import ctFrontImage from './src/assets/communiteam/communiteam-full-mobile.jpg'
 import ct1 from './src/assets/communiteam/ct-1.jpg'
 import ct2 from './src/assets/communiteam/ct-2.jpg'
 
+// dollar scholar images:
+import dsFrontImage from './src/assets/ds/ds-mobile.png'
+import dsBackImage from './src/assets/ds/ds-desktop.png'
+import ds1 from './src/assets/ds/ds-1.jpg'
+import ds2 from './src/assets/ds/ds-2.jpg'
+
 // armband images:
 import abMainImage from './src/assets/armband/main-image-3.png'
 import abSketch1 from './src/assets/armband/sketch-1.jpg'
@@ -39,6 +45,48 @@ import abRender1 from './src/assets/armband/render-1.jpg'
 import abRender2 from './src/assets/armband/render-2.jpg'
 
 export default [
+    {
+        title: "Dollar Scholar",
+        project: "dollar-scholar",
+        link: "https://dollarscholar.netlify.app",
+        backImage: {
+            type: 'regular-height',
+            source: dsBackImage,
+            alt: 'Dollar Scholar home page'
+        },
+        frontImage: {
+            type: 'mobile',
+            source: dsFrontImage,
+            alt: 'Dollar Scholar revise page'
+        },
+        images: [
+            {
+                source: ds1,
+                alt: 'Devices showing various screens of the Dollar Scholar web app'
+            },
+            {
+                source: ds2,
+                alt: 'Devices showing various screens of the Dollar Scholar web app'
+            }
+        ],
+        tags: [
+            'UI Design',
+            'Web Design',
+            'React',
+            'Full-Stack'
+        ],
+        description: "A Duolingo-inspired web-app promoting financial confidence through gamified learning.",
+        task: [
+            "Personal finance can be a daunting topic. With so much to learn, it can be hard figuring out where to even start.",
+            "Create a digital solution which empowers younger generations to become more financially confident and responsible."
+        ],
+        process: {
+            strategy: "Extensive web ethnography, exploring the ways in which young people are struggling financially.",
+            design: "Mobile-first wireframing. Branding experimentation. Figma prototyping.",
+            development: "Full-stack development. React and SASS front-end. Node JS backend. MongoDB database integration."
+        },
+        nextProject: "communiteam"
+    },
     {
         title: "Communiteam",
         project: "communiteam",
@@ -79,7 +127,7 @@ export default [
             design: "Moodboarding. Wireframing. Design. Prototyping. Iterating.",
             development: "Full-stack development. Database integration. GSAP. SASS. Shoelace. Lit HTML. Responsive design."
         },
-        nextProject: "dollar-scholar"
+        nextProject: "salt-shakerz"
     },
     {
         title: "Salt Shakerz",
@@ -120,7 +168,7 @@ export default [
             design: "Wireframing. Exploration. Iteration. Copywriting. Prototyping.",
             development: "HTML. CSS. JavaScript. Responsive Design."
         },
-        nextProject: "communiteam"
+        nextProject: "nectar"
     },
     {
         title: "Nectar Drinks",
@@ -161,7 +209,7 @@ export default [
             design: "moodboarding, wireframing, initial design exploration, design refinement.",
             development: "HTML, CSS, and JavaScript implementation. Responsive design. Publishing to GitHub and deploying through Netlify."
         },
-        nextProject: "salt-shakerz"
+        nextProject: "armband"
     },
     {
         title: 'MagSafe Armband',
@@ -294,7 +342,7 @@ export default [
                 alt: 'Photo shows MagSafe armband on arm'
             }
         ],
-        nextProject: "salt-shakerz"
+        nextProject: "dollar-scholar"
     }
     
     
