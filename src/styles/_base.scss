@@ -1,5 +1,9 @@
 /* helpers */
 
+svg {
+  transition: all 0.2s;
+}
+
 html::-webkit-scrollbar {
   display: none;
 }
