@@ -1,0 +1,125 @@
+.about-skill-entry {
+
+
+    .about-skill-button {
+        border: none;
+        background: none;
+        font-size: var(--body-large-font-size);
+        text-align: left;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        cursor: pointer;
+        width: 100%;
+
+        .title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            svg {
+                width: 2em;
+                height: 2em;
+                align-self: center;
+                color: var(--text-accent);
+                transform: translateY(0.15em);
+            }
+        }
+
+        .chevron {
+            width: fit-content;
+
+            svg {
+                transition: transform 0.4s;
+            }
+
+
+            &.open svg {
+                transform: rotateX(180deg);
+            }
+        }
+    }
+
+    hr {
+        border: none;
+        width: 100%;
+        height: 2px;
+        background: hsl(from var(--lime) h s l / 0.5);
+        margin-block: 1.5rem;
+    }
+
+    .skill-description {
+        overflow: hidden;
+        transition: max-height 0.4s;
+        mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+        
+        @media (width < 500px) {
+            mask-image: none;
+        }
+    }
+
+    .about-skill-tags{
+        width: fit-content;
+        display: flex;
+        padding-block: 2rem 1rem;
+        gap: 1rem;
+        animation-name: scrollTags;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+
+        &:hover {
+            // animation-play-state: paused;
+        }
+
+        @media (width < 500px) {
+            animation: none;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+    }
+
+    .about-skill-tag {
+        white-space: nowrap;
+        padding: .5em 1.5em;
+        // background-color: hsl(from var(--lime) h s l / 0.5);
+        border: 2px solid hsl(from var(--text-secondary) h s l / 0.2);
+        border-radius: 10px;
+        color: var(--text-primary);
+        width: fit-content;
+        align-items: center;
+        gap: 1em;
+        display: flex;
+
+        .icon-container {
+            height: 2em;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+        }
+
+        svg {
+            max-height: 2em;
+            max-width: 2em;
+            width: 2em;
+            margin: 0;
+        }
+
+        @media (width < 500px) {
+
+            padding: 0.5em 1em;
+            white-space: wrap;
+
+            &[aria-hidden="true"] {
+                display: none;
+            }
+        }
+
+    }
+}
+
+@keyframes scrollTags {
+    to {
+        transform: translateX(calc(-33.3333333% - 0.33333333rem));
+    }
+}
+

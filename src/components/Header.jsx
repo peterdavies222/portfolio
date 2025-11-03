@@ -1,9 +1,17 @@
 // import brandmark from "../assets/main-3-light.svg"
 
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
 import {useEffect, useState} from 'react'
 
-export default function Header(props) {
+export default function Header() {
+
+    const location = useLocation()
+    const path = location.pathname
+
+    let section
+    if(path === '/') section = 'projects'
+    if(path === '/about') section = 'about'
+    if(path === '/contact') section = 'contact'
 
     const [navOpen, setNavOpen] = useState(false)
     const [desktop, setDesktop] = useState(null)
@@ -107,9 +115,9 @@ export default function Header(props) {
             </div>
 
             <nav id="nav" data-expanded={navOpen || desktop ? "true" : "false"} className={navOpen===true ? "open" : "closed"}>
-                <Link onClick={linkClick} className={`text-primary ${props.section === 'projects' ? 'active' : ''}`} to="/">Projects</Link>
-                <Link onClick={linkClick} className={`text-primary ${props.section === 'about' ? 'active' : ''}`} to="/about">About</Link>
-                <Link onClick={linkClick} className={`text-primary ${props.section === 'contact' ? 'active' : ''}`} to="/contact">Contact</Link>
+                <Link onClick={linkClick} className={`text-primary ${section === 'projects' ? 'active' : ''}`} to="/">Projects</Link>
+                <Link onClick={linkClick} className={`text-primary ${section === 'about' ? 'active' : ''}`} to="/about">About</Link>
+                <Link onClick={linkClick} className={`text-primary ${section === 'contact' ? 'active' : ''}`} to="/contact">Contact</Link>
             </nav>
         </header>
     )

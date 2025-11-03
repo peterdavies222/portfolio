@@ -9,6 +9,11 @@ footer.main-footer {
     justify-content: end;
     gap: 3rem;
 
+    // &.about {
+    //     padding-top: 0;
+    //     margin-top: 0;
+    // }
+
     h2 {
 
         .gradient {
@@ -26,23 +31,37 @@ footer.main-footer {
         }
 
         @media (width < 700px) {
-            text-align: left;
+            // text-align: left;
         }
     }
 
-    a.text-primary.serifed {
+    a.email, a.linkedin, a.github {
         cursor: pointer;
-        font-size: var(--subheading-font-size);
+        font-size: var(--body-large-font-size);
+        font-weight: 500;
         position: relative;
         isolation: isolate;
         display: block;
         width: fit-content;
         color: var(--mint);
+        white-space: nowrap;
+
+        svg {
+            height: 0.8em;
+            width: 0.8em;
+            margin-left: .35em;
+            transform: translateY(0.1em);
+        }
+
             @media (width < 900px) {
-                margin-inline: auto;
+                border: 1px solid var(--text-primary);
+                padding: .3em 1em .5em;
+                border-radius: 100px;
             }
-            @media (width < 700px) {
-                display: none;
+
+            @media (width < 500px) {
+                width: 100%;
+                text-align: center;
             }
     }
 
@@ -50,32 +69,31 @@ footer.main-footer {
         color: var(--bg-color);
         background-color: var(--text-accent);
         width: fit-content;
-        padding: 10px 15px;
+        padding: 10px 25px 13px;
         border-radius: 9999px;
         display: none;
+        margin: auto;
         @media (width < 700px) {
             display: block;
         }
 
     }
 
-    a:hover {
-        .contact-line {
-            width: 100%;
-            left: 0;
-        }
-    }
+    .footer-contacts {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-bottom: 60px;
 
-    .contact-line {
-        position: absolute;
-        bottom: 0px;
-        width: 0%;
-        height: 5px;
-        background-color: var(--raspberry);
-        transition: width 1s;
-        border-radius: 10px;
-        z-index: -1;
-        right: 0;
+        .icon svg {
+            width: var(--heading-small-font-size);
+        }
+
+        @media (width < 900px) {
+            margin-inline: auto;
+            gap: 1rem;
+            justify-content: center;
+        }
     }
 
     .footer-tags {
@@ -111,7 +129,7 @@ footer.main-footer {
             align-items: center;
         }
         @media (width < 700px) {
-            align-items: flex-start;
+            // align-items: flex-start;
         }
     }
 

@@ -1,8 +1,8 @@
-import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Project from "../components/Project"
 import projectsData from "../../projectsData"
 import {useEffect} from 'react'
+import LineHoverEffect from '../components/LineHoverEffect'
 
 export default function HomeView() {
 
@@ -35,70 +35,48 @@ export default function HomeView() {
                                 </g>
                                 </svg>
     
-    // function bgColors() {
-    //     let projectsSectionOffset = document.getElementById("projects").offsetHeight
-    //     let currentScrollHeight = window.scrollY
-    //     let projectsSectionDistance = projectsSectionOffset - currentScrollHeight
-    //     let quarterWindowHeight = window.innerHeight / 2
-    //     let wrapper = document.querySelector('.wrapper')
-    //     if(projectsSectionDistance <= quarterWindowHeight) {
-    //         wrapper.classList.remove('dark')
-    //         wrapper.classList.add('light')
-    //     } else {
-    //         wrapper.classList.remove('light')
-    //         wrapper.classList.add('dark')
-    //     }
-    // }
 
     function bgColors() {
         const projectsEl = document.getElementById("projects");
         const videoEl = document.getElementById("video")
-        const footerEl = document.querySelector('footer')
-        const wrapper = document.querySelector(".wrapper");
-        if (!projectsEl || !wrapper) return; // safety
+        const body = document.querySelector('body')
+        if (!projectsEl || !body) return; // safety
+
+        const currentScrollHeight = window.scrollY;
 
         const projectsSectionOffset = projectsEl.offsetTop;
-        const currentScrollHeight = window.scrollY;
-        const projectsSectionDistance =
-            projectsSectionOffset - currentScrollHeight;
+        const projectsSectionDistance = projectsSectionOffset - currentScrollHeight;
 
-        // const footerOffset = footerEl.offsetTop
-        // const footerDistance = footerOffset - currentScrollHeight
         const videoOffset = videoEl.offsetTop
         const videoDistance = videoOffset - currentScrollHeight
 
         const delayHeight = window.innerHeight / 2;
-        const footerDelayHeight = 2 * window.innerHeight / 3;
 
-        if (projectsSectionDistance >= delayHeight) {
-            wrapper.classList.remove("light");
-            wrapper.classList.add("dark");
-        } else if(projectsSectionDistance < delayHeight && videoDistance >= delayHeight ){
-            wrapper.classList.remove("dark");
-            wrapper.classList.add("light");
+        if (projectsSectionDistance > delayHeight) {
+            body.classList.remove("light", "green");
+            body.classList.add("dark");
+        } else if(projectsSectionDistance <= delayHeight && videoDistance > delayHeight ){
+            body.classList.remove("dark", "green");
+            body.classList.add("light");
         } else {
-            wrapper.classList.remove("light")
-            wrapper.classList.add("dark") 
+            body.classList.remove("light", "green")
+            body.classList.add("dark") 
         }
     }
+
     useEffect(() => {
 
         // Run once on mount
         bgColors();
 
         // Add scroll listener
-        window.addEventListener("scroll", bgColors);
+        window.addEventListener("scroll", bgColors, { passive: true });
         return () => window.removeEventListener("scroll", bgColors);
     }, []);
   
     const projectElements = projectsData.map((entry, i) => {
             return (
                 <Project 
-                    // title={entry.title}
-                    // project={entry.project}
-                    // tags={entry.tags}
-                    // description={entry.description}
-                    // images={entry.images}
                     project={entry}
                     key={i}
                 />
@@ -109,10 +87,8 @@ export default function HomeView() {
     return (
 
         <>
+            <LineHoverEffect />
             <div className="wrapper dark">
-                <Header 
-                    section="projects"
-                />
                 <main className="projects">
                     <section className="hero">
                         <span>
@@ -121,7 +97,7 @@ export default function HomeView() {
                         </span>
                     </section>
                     <section id="projects">
-                        <h2 className="text-primary">Check out my <span className="italic text-accent">work</span>.</h2>
+                        <h2 className="text-primary">Check out my <span className="italic text-accent serifed">work</span>.</h2>
                         <div className="projects">
                             {projectElements}
                         </div>

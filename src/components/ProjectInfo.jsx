@@ -76,25 +76,25 @@ export default function ProjectInfo({project, setIsExpanded, isExpanded}) {
                 </header>
                 <main>
                     <div className="project__group">
-                        <h3>The <span className="italic">problem</span></h3>
+                        <h3>The <span className="italic serifed">problem</span></h3>
                         <div className="project__paragraphs">
                             {taskParaEls}
                         </div>
                     </div>
                     <div className="project__group full__width">
-                        <h3>The <span className="italic">planning</span></h3>
+                        <h3>The <span className="italic serifed">planning</span></h3>
                         <div className="project__paragraphs">
                             {planningEls}
                         </div>
                     </div>
                     <div className="project__group full__width">
-                        <h3>The <span className="italic">iteration</span></h3>
+                        <h3>The <span className="italic serifed">iteration</span></h3>
                         <div className="iteration__grid">
                             {iterationEls}
                         </div>
                     </div>
                     <div className="project__group full__width">
-                        <h3>The <span className="italic">solution</span></h3>
+                        <h3>The <span className="italic serifed">solution</span></h3>
                         <div className="solution__images">
                             {solutionEls}
                         </div>
@@ -143,7 +143,7 @@ export default function ProjectInfo({project, setIsExpanded, isExpanded}) {
                 </header>
                 <main>
                     <div className="project__group">
-                        <h3>The <span className="italic">task</span></h3>
+                        <h3>The <span className="italic serifed">task</span></h3>
                         <div className="project__paragraphs">
                             {taskParaEls}
                         </div>
@@ -152,7 +152,7 @@ export default function ProjectInfo({project, setIsExpanded, isExpanded}) {
                         <img src={project.images[0].source} alt={project.images[0].alt} />
                     </div>
                     <div className="project__group">
-                        <h3>The <span className="italic">process</span></h3>
+                        <h3>The <span className="italic serifed">process</span></h3>
                         <ul className="process">
                             <li>
                                 <StrategySymbol className="process__symbol"/>

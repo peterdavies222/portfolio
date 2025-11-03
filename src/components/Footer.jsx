@@ -1,4 +1,8 @@
-export default function Footer() {
+import arrowRight from '../assets/arrow-right.svg?react'
+
+export default function Footer(props) {
+
+    const ArrowRight = arrowRight
 
     const strategyIcon = <svg className="semantic-icon" viewBox="0 0 42 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M40.4882 14.3775V10.6657C40.4882 9.85125 39.8268 9.19345 39.0079 9.19345H33.1181C32.4252 9.19345 31.8583 8.62963 31.8583 7.94052V2.08304C31.8583 1.26863 31.1969 0.61084 30.378 0.61084H26.6457C25.8268 0.61084 25.1654 1.26863 25.1654 2.08304V7.94052C25.1654 8.62963 24.5984 9.19345 23.9055 9.19345H18.0787C17.3858 9.19345 16.8189 8.62963 16.8189 7.94052V2.08304C16.8189 1.26863 16.1575 0.61084 15.3386 0.61084H11.6063C10.7874 0.61084 10.126 1.26863 10.126 2.08304V7.94052C10.126 8.62963 9.55905 9.19345 8.86614 9.19345H2.99213C2.17323 9.19345 1.51181 9.85125 1.51181 10.6657V14.3775C1.51181 15.1919 2.17323 15.8497 2.99213 15.8497H8.88189C9.5748 15.8497 10.1417 16.4135 10.1417 17.1026V22.8974C10.1417 23.5866 9.5748 24.1504 8.88189 24.1504H2.99213C2.17323 24.1504 1.51181 24.8082 1.51181 25.6226V29.3344C1.51181 30.1488 2.17323 30.8066 2.99213 30.8066H8.88189C9.5748 30.8066 10.1417 31.3704 10.1417 32.0595V37.917C10.1417 38.7314 10.8031 39.3892 11.622 39.3892H15.3543C16.1732 39.3892 16.8346 38.7314 16.8346 37.917V32.0595C16.8346 31.3704 17.4016 30.8066 18.0945 30.8066H23.9213C24.6142 30.8066 25.1811 31.3704 25.1811 32.0595V37.917C25.1811 38.7314 25.8425 39.3892 26.6614 39.3892H30.3937C31.2126 39.3892 31.874 38.7314 31.874 37.917V32.0595C31.874 31.3704 32.4409 30.8066 33.1339 30.8066H39.0236C39.8425 30.8066 40.5039 30.1488 40.5039 29.3344V25.6226C40.5039 24.8082 39.8425 24.1504 39.0236 24.1504H33.1339C32.4409 24.1504 31.874 23.5866 31.874 22.8974V17.1026C31.874 16.4135 32.4409 15.8497 33.1339 15.8497H39.0236C39.8425 15.8497 40.5039 15.1919 40.5039 14.3775H40.4882ZM23.9055 24.1504H18.0787C17.3858 24.1504 16.8189 23.5866 16.8189 22.8974V17.1026C16.8189 16.4135 17.3858 15.8497 18.0787 15.8497H23.9055C24.5984 15.8497 25.1654 16.4135 25.1654 17.1026V22.8974C25.1654 23.5866 24.5984 24.1504 23.9055 24.1504Z" fill="currentColor"/>
@@ -45,22 +49,50 @@ export default function Footer() {
                             <path className="text-primary" fill="currentColor" d="M764.15,58.96c1-.73,2.38-.51,3.14.47,4.25,5.47,10.53,8.81,17.03,8.81,5.83,0,10.63-2.34,10.63-5.72,0-4.74-6.27-6.16-15.16-8.83-13.25-3.98-25.3-8.23-25.3-23.39,0-13.63,13.3-22.08,26.88-22.08,12.25,0,21.28,5.45,27.75,13.93.77,1.01.57,2.47-.46,3.22l-9.62,7.09c-.99.73-2.36.52-3.14-.43-3.32-4.12-8.24-8.05-14.54-8.05-5.18,0-8.78,2.45-8.78,6,0,4.91,5.67,5.78,13.68,8.45,16.74,5.56,26.77,9.98,26.77,23.5,0,15.43-15.05,22.52-29.17,22.52-12.56,0-24.39-5.25-30.35-15.19-.6-1.01-.33-2.31.62-3l9.99-7.28Z"/>
                         </svg>
 
+    // const githubIcon =  <svg viewBox="0 0 128 128">
+    //                         <g className="text-accent" fill="currentColor"><path fillRule="evenodd" clipRule="evenodd" d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z"></path><path d="M26.484 91.806c-.133.3-.605.39-1.035.185-.44-.196-.685-.605-.543-.906.13-.31.603-.395 1.04-.188.44.197.69.61.537.91zm2.446 2.729c-.287.267-.85.143-1.232-.28-.396-.42-.47-.983-.177-1.254.298-.266.844-.14 1.24.28.394.426.472.984.17 1.255zM31.312 98.012c-.37.258-.976.017-1.35-.52-.37-.538-.37-1.183.01-1.44.373-.258.97-.025 1.35.507.368.545.368 1.19-.01 1.452zm3.261 3.361c-.33.365-1.036.267-1.552-.23-.527-.487-.674-1.18-.343-1.544.336-.366 1.045-.264 1.564.23.527.486.686 1.18.333 1.543zm4.5 1.951c-.147.473-.825.688-1.51.486-.683-.207-1.13-.76-.99-1.238.14-.477.823-.7 1.512-.485.683.206 1.13.756.988 1.237zm4.943.361c.017.498-.563.91-1.28.92-.723.017-1.308-.387-1.315-.877 0-.503.568-.91 1.29-.924.717-.013 1.306.387 1.306.88zm4.598-.782c.086.485-.413.984-1.126 1.117-.7.13-1.35-.172-1.44-.653-.086-.498.422-.997 1.122-1.126.714-.123 1.354.17 1.444.663zm0 0"></path></g>
+    //                     </svg>
+          
+    // const linkedInIcon =    <svg viewBox="0 0 128 128">
+    //                             <path className="text-accent" fill="currentColor" d="M116 3H12a8.91 8.91 0 00-9 8.8v104.42a8.91 8.91 0 009 8.78h104a8.93 8.93 0 009-8.81V11.77A8.93 8.93 0 00116 3z"></path>
+    //                             <path className="text-hidden" fill="currentColor" d="M21.06 48.73h18.11V107H21.06zm9.06-29a10.5 10.5 0 11-10.5 10.49 10.5 10.5 0 0110.5-10.49M50.53 48.73h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75v32H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53z"></path>
+    //                         </svg>
+          
+
     return(
-        <footer className="main-footer">
-            {/* <p className="footer-cta">Let's make something amazing.</p>
-            <Contacts />
-            <div className="footer-icons">
-                <div className="semantic-icons">
-                    <img className="semantic-icon" src={strategy} alt="Strategy icon" />
-                    <img className="semantic-icon" src={design} alt="Design icon" />
-                    <img className="semantic-icon" src={dev} alt="Development icon" />
-                </div>
-                <img src={submark} alt="Peter Davies" />
+        <footer className={`main-footer ${props.page === 'about' ? 'about' : ''}`}>
+            <h2 className="text-primary">Let's create something <span className="serifed italic gradient">exceptional.</span></h2>
+            {/* <a href="mailto:hello@peterdaviesdigital.com" className="text-primary email line-hover-element">hello@peterdaviesdigital.com<span className="hover-line"></span></a>
+            <a href="mailto:hello@peterdaviesdigital.com" className="button-like">hello@peterdaviesdigital.com</a> */}
+            {/* <div className="footer-socials">
+                <a className="icon" href="https://www.linkedin.com/in/peter-davies-356753339" target="_blank">{linkedInIcon}</a>
+                <a className="icon" href="https://github.com/peterdavies222" target="_blank">{githubIcon}</a>
             </div> */}
-            <h2 className="text-primary">Let's create something <span className="italic gradient">exceptional.</span></h2>
-            <a href="mailto:hello@peterdaviesdigital.com" className="text-primary serifed">hello@peterdaviesdigital.com<div className="contact-line"></div></a>
-            <a href="mailto:hello@peterdaviesdigital.com" className="button-like">Get in touch</a>
-            <div className="footer-bottom">
+            <div className="footer-contacts">
+                <a 
+                    href="mailto:hello@peterdaviesdigital.com" 
+                    className="text-primary email line-hover-element">
+                        hello@peterdaviesdigital.com
+                        <span className="hover-line"></span>
+                </a>
+                <a 
+                    href="https://www.linkedin.com/in/peter-davies-356753339" 
+                    className="text-primary linkedin line-hover-element" 
+                    target="_blank">
+                        LinkedIn
+                        <ArrowRight />
+                        <span className="hover-line"></span>
+                </a>
+                <a 
+                    href="https://github.com/peterdavies222" 
+                    className="text-primary linkedin line-hover-element" 
+                    target="_blank">
+                        GitHub
+                        <ArrowRight />
+                        <span className="hover-line"></span>
+                </a>
+            </div>
+            {/* <div className="footer-bottom">
                 <div className="footer-tags">
                     <div className="footer-tag">
                         {strategyIcon}
@@ -78,7 +110,7 @@ export default function Footer() {
                 <div className="footer-brandmark">
                     {brandmark}
                 </div>
-            </div>
+            </div> */}
         </footer>
     )
 }

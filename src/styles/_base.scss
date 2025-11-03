@@ -1,7 +1,7 @@
 /* helpers */
 
-html {
-  // scroll-behavior: smooth;
+html::-webkit-scrollbar {
+  display: none;
 }
 
 *, *::before, *::after {
@@ -11,7 +11,7 @@ html {
   margin: 0;
   padding: 0;
   transition: background-color 1s, color 1s;
-  /* outline: solid red 1px; */
+  // outline: solid red 1px;
 }
 
 :root {
@@ -19,7 +19,47 @@ html {
 }
 
 body {
-  background-color: var(--dark-forest);
+  // background-color: var(--dark-forest);
+  transition: background-color 0.5s;
+
+  &.dark {
+    --background-color: var(--dark-forest);
+    background-color: var(--background-color);
+    --text-primary: var(--mint);
+    --text-secondary: var(--dust);
+    --text-accent: var(--lime);
+    --text-hover: var(--lime);
+    --bg-color: var(--dark-forest);
+    --card-color: hsl(from var(--mint) h s l / 0.05);
+    --inverse-button-bg: var(--apple);
+    --inverse-button-text: var(--mint);
+    --inverse-button-outline: var(--mint);
+  }
+
+  &.light {
+    --background-color: var(--mint);
+    background-color: var(--background-color);
+    --text-primary: var(--forest);
+    --text-secondary: var(--birch);
+    --text-accent: var(--apple);
+    --text-hover: var(--lime);
+    --bg-color: var(--mint);
+    --card-color: var(--lime);
+    --inverse-button-bg: var(--lime);
+    --inverse-button-text: var(--dark-forest);
+    --inverse-button-outline: var(--birch);
+  }
+
+  &.green {
+    --background-color: var(--lime);
+    background-color: var(--background-color);
+    --text-primary: var(--forest);
+    --text-secondary: var(--mint);
+    --text-accent: var(--apple);
+    --text-hover: var(--apple);
+    --bg-color: var(--lime);
+    --card-color: var(--mint);
+  }
 }
 
 body:has(.project__info) {
@@ -28,46 +68,47 @@ body:has(.project__info) {
 
 .wrapper {
   transition: background-color 1s;
+  background-color: transparent !important;
 }
 
-.wrapper.dark {
-  --background-color: var(--dark-forest);
-  background-color: var(--background-color);
-  --text-primary: var(--mint);
-  --text-secondary: var(--dust);
-  --text-accent: var(--lime);
-  --text-hover: var(--lime);
-  --bg-color: var(--dark-forest);
-  --card-color: hsl(from var(--mint) h s l / 0.05);
-  --inverse-button-bg: var(--apple);
-  --inverse-button-text: var(--mint);
-  --inverse-button-outline: var(--mint);
-}
+// .wrapper.dark {
+//   --background-color: var(--dark-forest);
+//   background-color: var(--background-color);
+//   --text-primary: var(--mint);
+//   --text-secondary: var(--dust);
+//   --text-accent: var(--lime);
+//   --text-hover: var(--lime);
+//   --bg-color: var(--dark-forest);
+//   --card-color: hsl(from var(--mint) h s l / 0.05);
+//   --inverse-button-bg: var(--apple);
+//   --inverse-button-text: var(--mint);
+//   --inverse-button-outline: var(--mint);
+// }
 
-.wrapper.light {
-  --background-color: var(--mint);
-  background-color: var(--background-color);
-  --text-primary: var(--forest);
-  --text-secondary: var(--birch);
-  --text-accent: var(--apple);
-  --text-hover: var(--lime);
-  --bg-color: var(--mint);
-  --card-color: var(--lime);
-  --inverse-button-bg: var(--lime);
-  --inverse-button-text: var(--dark-forest);
-  --inverse-button-outline: var(--birch);
-}
+// .wrapper.light {
+//   --background-color: var(--mint);
+//   background-color: var(--background-color);
+//   --text-primary: var(--forest);
+//   --text-secondary: var(--birch);
+//   --text-accent: var(--apple);
+//   --text-hover: var(--lime);
+//   --bg-color: var(--mint);
+//   --card-color: var(--lime);
+//   --inverse-button-bg: var(--lime);
+//   --inverse-button-text: var(--dark-forest);
+//   --inverse-button-outline: var(--birch);
+// }
 
-.wrapper.green {
-  --background-color: var(--lime);
-  background-color: var(--background-color);
-  --text-primary: var(--forest);
-  --text-secondary: var(--mint);
-  --text-accent: var(--apple);
-  --text-hover: var(--apple);
-  --bg-color: var(--lime);
-  --card-color: var(--mint);
-}
+// .wrapper.green {
+//   --background-color: var(--lime);
+//   background-color: var(--background-color);
+//   --text-primary: var(--forest);
+//   --text-secondary: var(--mint);
+//   --text-accent: var(--apple);
+//   --text-hover: var(--apple);
+//   --bg-color: var(--lime);
+//   --card-color: var(--mint);
+// }
 
 main {
   margin-inline: var(--inline-page-margins);
@@ -92,6 +133,10 @@ p {
     /* color: var(--dark-gradient-end); */
 }
 
+.hero h1, .hero h2 {
+  line-height: 110%;
+}
+
 h1, h2 {
   font-weight: 700;
 }
@@ -101,14 +146,13 @@ h2 {
 }
 
 .italic {
-    font-family: 'new-spirit';
-    font-weight: 700;
     font-style: italic;
 }
 
 .serifed {
   font-family: 'new-spirit';
   font-weight: 700;
+  font-size: 0.9em;
 }
 
 .text-primary {
@@ -121,6 +165,11 @@ h2 {
 
 .text-accent {
   color: var(--text-accent);
+}
+
+.text-hidden {
+  color: var(--background-color);
+  transition: all 0s;
 }
 
 /* .heading-large {
@@ -148,6 +197,44 @@ p.body {
 #splash.hidden {
   outline: 1px solid var(--mint);
   transform: translateY(-101vh);
+}
+
+.hover-line {
+  position: absolute;
+  bottom: 0px;
+  width: 0;
+  height: 3px;
+  background-color: var(--raspberry);
+  border-radius: 10px;
+  z-index: -1;
+  right: 0;
+  transition: width 0.5s, opacity 0.5s;
+
+  @media (width < 900px) {
+    display: none;
+  }
+}
+
+.line-hover-element .hover-line-hold {
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+
+.desktop-only {
+  display: block;
+
+  @media (width < 900px) {
+    display: none;
+  }
+}
+
+.mobile-only {
+  display: none;
+
+  @media (width < 900px) {
+    display: block;
+  }
 }
 
 @keyframes shimmer {
